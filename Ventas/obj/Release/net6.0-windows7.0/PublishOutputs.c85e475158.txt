@@ -1,0 +1,13 @@
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\Ventas.exe
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\Ventas.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\Ventas.deps.json
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\Ventas.runtimeconfig.json
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\Ventas.dll.config
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\Ventas.pdb
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\System.Configuration.ConfigurationManager.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\System.Data.OleDb.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\System.Diagnostics.PerformanceCounter.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\System.Security.Cryptography.ProtectedData.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\runtimes\win\lib\net6.0\System.Diagnostics.PerformanceCounter.dll
+F:\VS2022\Ventas\bin\Release\net6.0-windows\publish\MySql.Data.dll

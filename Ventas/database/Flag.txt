@@ -1,0 +1,2 @@
+¡FlagFile!
+Este es un archivo de texto creado con .NET Core para actualizar productos en una llamda asincronica
