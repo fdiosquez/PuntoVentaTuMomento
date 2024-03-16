@@ -146,5 +146,22 @@ namespace Ventas.Forms
                 return false;
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            
+            if (MessageBox.Show("¿Estás seguro de que desea inicializar la tabla productos por primera vez?", "Confirmar Acción", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK  )
+            {
+                MessageBox.Show("Este proceso puede demorar varios minutos, por favor espere.");
+
+                FrmEsperar frm = new FrmEsperar();
+                if (frm.ShowDialog(2) == DialogResult.OK)
+                {
+                    General.CargarDatosDeProductos();
+                }
+                MessageBox.Show("Proceso terminado!");
+
+            }
+        }
     }
 }

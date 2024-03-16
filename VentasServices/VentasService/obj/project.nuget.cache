@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TsM3D3b9QWHjXjocE88vfrEW8CW4lrzfbd5oi1z7L3enA7gQ4LvXFmuMoW3+XKu/U9flklLEm0X9iSDPk5I+qw==",
+  "dgSpecHash": "q1POqM7bOlVUk11hG2NHIeebqeUhNtHfhUsqQj8qOvDGeuHI4WFgxV8GWIPE/ZUi2rhj/8N0wCs3OsnEvxB2DQ==",
   "success": true,
-  "projectFilePath": "F:\\VS2022\\VentasServices\\VentasService\\VentasService.csproj",
+  "projectFilePath": "F:\\VS2022\\TuMomentoPtoVta\\VentasServices\\VentasService\\VentasService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fernando Diosquez\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\Fernando Diosquez\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

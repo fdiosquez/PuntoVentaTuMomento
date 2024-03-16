@@ -30,7 +30,13 @@ namespace Ventas
         private Form activeForm;
         private System.Timers.Timer _TIMER;
 
-        
+        //FORMULARIOS
+        FrmVenta? frmVentaInstance = null;
+        FrmVentaConsultas? frmVentaConsultasInstance = null;
+        FrmCaja? frmCajaInstance = null;
+        FrmProductos? frmProductosInstance = null;
+        FrmEventos? frmEventosInstance = null;
+        FrmConfiguracion? frmConfiguracionInstance = null;
 
         public FrmMain()
         {
@@ -123,130 +129,134 @@ namespace Ventas
             }
         }
 
-        private void OpenChildForm(Form childForm, object btnSender)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            ActivateButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPane.Controls.Add(childForm);
-            this.panelDesktopPane.Tag = childForm;
-            childForm.BringToFront();
+        //private void OpenChildForm(Form childForm, object btnSender)
+        //{
+        //    if (activeForm != null)
+        //        activeForm.Close();
+        //    ActivateButton(btnSender);
+        //    activeForm = childForm;
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    this.panelDesktopPane.Controls.Add(childForm);
+        //    this.panelDesktopPane.Tag = childForm;
+        //    childForm.BringToFront();
 
-            childForm.Show();
-            lblTitle.Text = childForm.Text;
-            panelTitleBar.Visible = true;
-        }
-
-
-        private void OpenChildForm(FrmVenta childForm, object btnSender)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            ActivateButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPane.Controls.Add(childForm);
-            this.panelDesktopPane.Tag = childForm;
-            childForm.BringToFront();
-
-            panelTitleBar.Visible = false;
-
-            //childForm.OnChildTextChanged += new EventHandler(child_OnChildTextChanged);
-
-            childForm.Show();
-            lblTitle.Text = childForm.Text;
-        }
-
-        private void OpenChildForm(FrmEventos childForm, object btnSender)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            ActivateButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPane.Controls.Add(childForm);
-            this.panelDesktopPane.Tag = childForm;
-            childForm.BringToFront();
-
-            panelTitleBar.Visible = false;
-
-            //childForm.OnChildTextChanged += new EventHandler(child_OnChildTextChanged);
-
-            childForm.Show();
-            lblTitle.Text = childForm.Text;
-        }
-
-        private void OpenChildForm(FrmVentaConsultas childForm, object btnSender)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            ActivateButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPane.Controls.Add(childForm);
-            this.panelDesktopPane.Tag = childForm;
-            childForm.BringToFront();
-
-            panelTitleBar.Visible = false;
-
-            //childForm.OnChildTextChanged += new EventHandler(child_OnChildTextChanged);
-
-            childForm.Show();
-            lblTitle.Text = childForm.Text;
-        }
+        //    childForm.Show();
+        //    lblTitle.Text = childForm.Text;
+        //    panelTitleBar.Visible = true;
+        //}
 
 
-        private void OpenChildForm(FrmCaja childForm, object btnSender)
-        {
-            if (activeForm != null)
-                activeForm.Close();
+        //private void OpenChildForm(FrmVenta childForm, object btnSender)
+        //{
+        //    //if (activeForm != null)
+        //    //{
+        //    //    //activeForm.Close();
+        //    //    activeForm.Visible = false;
+        //    //}
+                
 
-            ActivateButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPane.Controls.Add(childForm);
-            this.panelDesktopPane.Tag = childForm;
-            childForm.BringToFront();
+        //    //ActivateButton(btnSender);
+        //    //activeForm = childForm;
+        //    //childForm.TopLevel = false;
+        //    //childForm.FormBorderStyle = FormBorderStyle.None;
+        //    //childForm.Dock = DockStyle.Fill;
+        //    //this.panelDesktopPane.Controls.Add(childForm);
+        //    //this.panelDesktopPane.Tag = childForm;
+        //    //childForm.BringToFront();
 
-            panelTitleBar.Visible = false;
+        //    //panelTitleBar.Visible = false;            
 
-            childForm.Show();
-            lblTitle.Text = childForm.Text;
+        //    //childForm.Show();
 
-        }
+        //    //lblTitle.Text = childForm.Text;
+        //}
 
-        private void OpenChildForm(FrmProductos childForm, object btnSender)
-        {
-            if (activeForm != null)
-                activeForm.Close();
+        //private void OpenChildForm(FrmEventos childForm, object btnSender)
+        //{
+        //    if (activeForm != null)
+        //        activeForm.Close();
+        //    ActivateButton(btnSender);
+        //    activeForm = childForm;
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    this.panelDesktopPane.Controls.Add(childForm);
+        //    this.panelDesktopPane.Tag = childForm;
+        //    childForm.BringToFront();
 
-            ActivateButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktopPane.Controls.Add(childForm);
-            this.panelDesktopPane.Tag = childForm;
-            childForm.BringToFront();
+        //    panelTitleBar.Visible = false;
 
-            panelTitleBar.Visible = false;
+        //    //childForm.OnChildTextChanged += new EventHandler(child_OnChildTextChanged);
 
-            childForm.Show();
-            lblTitle.Text = childForm.Text;
+        //    childForm.Show();
+        //    lblTitle.Text = childForm.Text;
+        //}
 
-        }
+        //private void OpenChildForm(FrmVentaConsultas childForm, object btnSender)
+        //{
+        //    //if (activeForm != null)
+        //    //    activeForm.Close();
+        //    //ActivateButton(btnSender);
+        //    //activeForm = childForm;
+        //    //childForm.TopLevel = false;
+        //    //childForm.FormBorderStyle = FormBorderStyle.None;
+        //    //childForm.Dock = DockStyle.Fill;
+        //    //this.panelDesktopPane.Controls.Add(childForm);
+        //    //this.panelDesktopPane.Tag = childForm;
+        //    //childForm.BringToFront();
+
+        //    //panelTitleBar.Visible = false;
+
+        //    ////childForm.OnChildTextChanged += new EventHandler(child_OnChildTextChanged);
+
+        //    //childForm.Show();
+        //    //lblTitle.Text = childForm.Text;
+        //}
+
+
+        //private void OpenChildForm(FrmCaja childForm, object btnSender)
+        //{
+        //    if (activeForm != null)
+        //        activeForm.Close();
+
+        //    ActivateButton(btnSender);
+        //    activeForm = childForm;
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    this.panelDesktopPane.Controls.Add(childForm);
+        //    this.panelDesktopPane.Tag = childForm;
+        //    childForm.BringToFront();
+
+        //    panelTitleBar.Visible = false;
+
+        //    childForm.Show();
+        //    lblTitle.Text = childForm.Text;
+
+        //}
+
+        //private void OpenChildForm(FrmProductos childForm, object btnSender)
+        //{
+        //    if (activeForm != null)
+        //        activeForm.Close();
+
+        //    ActivateButton(btnSender);
+        //    activeForm = childForm;
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    this.panelDesktopPane.Controls.Add(childForm);
+        //    this.panelDesktopPane.Tag = childForm;
+        //    childForm.BringToFront();
+
+        //    panelTitleBar.Visible = false;
+
+        //    childForm.Show();
+        //    lblTitle.Text = childForm.Text;
+
+        //}
 
         void child_OnChildTextChanged(object sender, EventArgs e)
         {
@@ -292,11 +302,9 @@ namespace Ventas
                 this.Text = string.Format("Punto de Venta v{0}.{1}", version.Major, version.Minor);
                 
 
-                //CARGA DATOS DEL SISTEMA
 
+                //CARGA DATOS DEL SISTEMA                                
                 General.CargarConfiguracion();
-
-
 
                 panelTitleBar.BackColor = ThemeColor.PrimaryColor;
 
@@ -306,8 +314,7 @@ namespace Ventas
                     Environment.Exit(0);
                 }
 
-
-                General.CargarDatosDeProductos();
+                
 
                 SetPrimerSetup();
 
@@ -327,6 +334,7 @@ namespace Ventas
                 Local.EliminaLogAntiguo();
 
                 btnNuevo_Click(btnNuevo, null);
+                
 
 
                 General._ID_CAJA_ACTUAL = Caja.ExisteCajaDelDia();
@@ -346,6 +354,9 @@ namespace Ventas
                     }
                 }
 
+                //CARGO LOS PRODUCTOS EN MEMORIA
+                new FrmEsperar().ShowDialog(3);
+
 
             }
             catch (Exception ex)
@@ -364,32 +375,228 @@ namespace Ventas
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FrmVenta(), sender);
+            
+            ActivateButton(sender);            
+            panelTitleBar.Visible = false;
+
+            if (frmVentaInstance == null)
+            {
+                frmVentaInstance = new Forms.FrmVenta();
+                frmVentaInstance.TopLevel = false;
+                frmVentaInstance.FormBorderStyle = FormBorderStyle.None;
+                frmVentaInstance.Dock = DockStyle.Fill;
+                lblTitle.Text = frmVentaInstance.Text;
+            }
+
+            
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmVentaInstance);
+
+            if(!frmVentaInstance.Visible)
+            {
+                frmVentaInstance.Visible = true;
+                frmVentaInstance.Show();
+            }
+               
+
         }
 
         private void btnConsultaPedidos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FrmVentaConsultas(), sender);
+           
+            ActivateButton(sender);
+            panelTitleBar.Visible = false;
+
+            if (frmVentaConsultasInstance == null)
+            {
+                frmVentaConsultasInstance = new Forms.FrmVentaConsultas();
+                frmVentaConsultasInstance.TopLevel = false;
+                frmVentaConsultasInstance.FormBorderStyle = FormBorderStyle.None;
+                frmVentaConsultasInstance.Dock = DockStyle.Fill;
+              //  lblTitle.Text = frmVentaConsultasInstance.Text;
+            }
+
+
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmVentaConsultasInstance);
+
+            if (frmVentaConsultasInstance.Visible)
+            {
+                frmVentaConsultasInstance.Refrescar();
+                
+            }
+            else 
+            {
+                frmVentaConsultasInstance.Visible = true;
+                frmVentaConsultasInstance.Show();
+            }
+
+            //Form f = new Forms.FrmVentaConsultas();
+            //f.TopLevel = false;
+            //panelDesktopPane.Controls.Clear();
+            //panelDesktopPane.Controls.Add(f);
+            //f.FormBorderStyle = FormBorderStyle.None;
+            //f.Dock = DockStyle.Fill;
+            //lblTitle.Text = f.Text;
+            //f.Show();
         }
 
         private void btnCaja_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FrmCaja(), sender);
+            //frmCajaInstance
+
+            ActivateButton(sender);
+            panelTitleBar.Visible = false;
+
+            if (frmCajaInstance == null)
+            {
+                frmCajaInstance = new Forms.FrmCaja();
+                frmCajaInstance.TopLevel = false;
+                frmCajaInstance.FormBorderStyle = FormBorderStyle.None;
+                frmCajaInstance.Dock = DockStyle.Fill;
+                // lblTitle.Text = frmCajaInstance.Text;
+            }
+
+
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmCajaInstance);
+
+            if (frmCajaInstance.Visible)
+            {
+                frmCajaInstance.Refrescar();                
+            }
+            else 
+            {
+                frmCajaInstance.Visible = true;
+                frmCajaInstance.Show();
+            }
+
+            //    Form f = new Forms.FrmCaja();
+            //    f.TopLevel = false;
+            //    panelDesktopPane.Controls.Clear();
+            //    panelDesktopPane.Controls.Add(f);
+            //    f.FormBorderStyle = FormBorderStyle.None;
+            //    f.Dock = DockStyle.Fill;
+            //    lblTitle.Text = f.Text;
+            //    f.Show();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FrmProductos(), sender);
+
+            //
+
+            ActivateButton(sender);
+            panelTitleBar.Visible = false;
+
+
+            if (frmProductosInstance == null)
+            {
+                frmProductosInstance = new Forms.FrmProductos();
+                frmProductosInstance.TopLevel = false;
+                frmProductosInstance.FormBorderStyle = FormBorderStyle.None;
+                frmProductosInstance.Dock = DockStyle.Fill;
+                // lblTitle.Text = frmCajaInstance.Text;
+            }
+
+
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmProductosInstance);
+
+            if (!frmProductosInstance.Visible)
+            {
+                frmProductosInstance.Visible = true;
+                frmProductosInstance.Show();
+            }
+
+            //Form f = new Forms.FrmProductos();
+            //f.TopLevel = false;
+            //panelDesktopPane.Controls.Clear();
+            //panelDesktopPane.Controls.Add(f);
+            //f.FormBorderStyle = FormBorderStyle.None;
+            //f.Dock = DockStyle.Fill;
+            //lblTitle.Text = f.Text;
+            //f.Show();
         }
 
         private void btnEventos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FrmEventos(), sender);
+            //OpenChildForm(new Forms.FrmEventos(), sender);
+            //frmEventos
+
+            ActivateButton(sender);
+            panelTitleBar.Visible = false;
+
+            if (frmEventosInstance == null)
+            {
+                frmEventosInstance = new Forms.FrmEventos();
+                frmEventosInstance.TopLevel = false;
+                frmEventosInstance.FormBorderStyle = FormBorderStyle.None;
+                frmEventosInstance.Dock = DockStyle.Fill;
+                // lblTitle.Text = frmCajaInstance.Text;
+            }
+
+
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmEventosInstance);
+
+            if (frmEventosInstance.Visible)
+            {
+                frmEventosInstance.Refrescar();
+            }
+            else 
+            {
+                frmEventosInstance.Visible = true;
+                frmEventosInstance.Show();
+            }
+
+
+            //Form f = new Forms.FrmEventos();
+            //f.TopLevel = false;
+            //panelDesktopPane.Controls.Clear();
+            //panelDesktopPane.Controls.Add(f);
+            //f.FormBorderStyle = FormBorderStyle.None;
+            //f.Dock = DockStyle.Fill;
+            //lblTitle.Text = f.Text;
+            //f.Show();
         }
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FrmConfiguracion(), sender);
+            //OpenChildForm(new Forms.FrmConfiguracion(), sender);
+            //frmConfiguracionInstance
+
+            ActivateButton(sender);
+            panelTitleBar.Visible = false;
+
+            if (frmConfiguracionInstance == null)
+            {
+                frmConfiguracionInstance = new Forms.FrmConfiguracion();
+                frmConfiguracionInstance.TopLevel = false;
+                frmConfiguracionInstance.FormBorderStyle = FormBorderStyle.None;
+                frmConfiguracionInstance.Dock = DockStyle.Fill;
+                // lblTitle.Text = frmCajaInstance.Text;
+            }
+
+
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmConfiguracionInstance);
+
+            if (!frmConfiguracionInstance.Visible)
+            {
+                frmConfiguracionInstance.Visible = true;
+                frmConfiguracionInstance.Show();
+            }
+
+
+            //Form f = new Forms.FrmConfiguracion();
+            //f.TopLevel = false;
+            //panelDesktopPane.Controls.Clear();
+            //panelDesktopPane.Controls.Add(f);
+            //f.FormBorderStyle = FormBorderStyle.None;
+            //f.Dock = DockStyle.Fill;
+            //lblTitle.Text = f.Text;
+            //f.Show();
         }
 
         private void panelDesktopPane_Paint(object sender, PaintEventArgs e)

@@ -42,8 +42,16 @@
             comboBox1 = new ComboBox();
             label3 = new Label();
             label4 = new Label();
+            groupBox3 = new GroupBox();
+            button6 = new Button();
+            button7 = new Button();
+            comboBox2 = new ComboBox();
+            label5 = new Label();
+            label6 = new Label();
+            button8 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -113,7 +121,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(681, 238);
+            button1.Location = new Point(681, 323);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -197,11 +205,86 @@
             label4.TabIndex = 0;
             label4.Text = "Permite descargar nueva versión de esta aplicación";
             // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox3.Controls.Add(button8);
+            groupBox3.Controls.Add(button6);
+            groupBox3.Controls.Add(button7);
+            groupBox3.Controls.Add(comboBox2);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Controls.Add(label6);
+            groupBox3.Location = new Point(10, 187);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(780, 76);
+            groupBox3.TabIndex = 3;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Inicialización de sistema";
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button6.Location = new Point(1253, 24);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 4;
+            button6.Text = "Grabar";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button7.Location = new Point(1075, 24);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 23);
+            button7.TabIndex = 3;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(932, 24);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(121, 23);
+            comboBox2.TabIndex = 2;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(16, 48);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 15);
+            label5.TabIndex = 1;
+            label5.Text = "_SYS_INI";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(13, 24);
+            label6.Name = "label6";
+            label6.Size = new Size(236, 15);
+            label6.TabIndex = 0;
+            label6.Text = "Permite descargar el catalogo de productos";
+            // 
+            // button8
+            // 
+            button8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button8.Location = new Point(671, 24);
+            button8.Name = "button8";
+            button8.Size = new Size(75, 23);
+            button8.TabIndex = 5;
+            button8.Text = "Descargar";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
             // FrmConfiguracion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(button1);
             Controls.Add(groupBox1);
@@ -212,6 +295,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -231,5 +316,12 @@
         private ComboBox comboBox1;
         private Label label3;
         private Label label4;
+        private GroupBox groupBox3;
+        private Button button8;
+        private Button button6;
+        private Button button7;
+        private ComboBox comboBox2;
+        private Label label5;
+        private Label label6;
     }
 }

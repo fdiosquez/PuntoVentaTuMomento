@@ -18,7 +18,7 @@ namespace VentasService
         
 
             public static void AfectarPedidosdDetalles(List<PEDIDO_DETALLE> _pedidos)
-        {
+            {
 
             /*
                 MARCA LOS PEDIDOS_DETALLES QUE YA FUERON SUBIDOS AL SERVER
@@ -48,7 +48,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("AfectarPedidosdDetalles():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -88,7 +88,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("AfectarPedidos():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -126,7 +126,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("RegresarStock():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -175,7 +175,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("CancelaPedido():" + ex.Message, "ERROR");
                 }
                 finally
                 {

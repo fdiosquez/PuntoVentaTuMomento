@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\VS2022\\Ventas\\Ventas.csproj": {}
+    "F:\\VS2022\\TuMomentoPtoVta\\Ventas\\Ventas.csproj": {}
   },
   "projects": {
-    "F:\\VS2022\\Ventas\\Ventas.csproj": {
-      "version": "3.6.0",
+    "F:\\VS2022\\TuMomentoPtoVta\\Ventas\\Ventas.csproj": {
+      "version": "3.12.0",
       "restore": {
-        "projectUniqueName": "F:\\VS2022\\Ventas\\Ventas.csproj",
+        "projectUniqueName": "F:\\VS2022\\TuMomentoPtoVta\\Ventas\\Ventas.csproj",
         "projectName": "Ventas",
-        "projectPath": "F:\\VS2022\\Ventas\\Ventas.csproj",
+        "projectPath": "F:\\VS2022\\TuMomentoPtoVta\\Ventas\\Ventas.csproj",
         "packagesPath": "C:\\Users\\Fernando Diosquez\\.nuget\\packages\\",
-        "outputPath": "F:\\VS2022\\Ventas\\obj\\",
+        "outputPath": "F:\\VS2022\\TuMomentoPtoVta\\Ventas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

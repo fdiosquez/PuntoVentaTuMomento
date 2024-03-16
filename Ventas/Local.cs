@@ -428,6 +428,40 @@ namespace Ventas
 
         }
 
+        public static bool EliminarProductos()
+        {
+
+            /*
+               ELIMINA TODOS LOS PRODUCTOS 
+            */
+            bool RESULT = false;
+            using (OleDbConnection connection = new OleDbConnection(General.GetConnectionString()))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string SQL = @"DELETE FROM PRODUCTOS";
+                    OleDbCommand oleDbCommand = new OleDbCommand(SQL, connection);
+                    oleDbCommand.CommandType = CommandType.Text;
+                    RESULT = oleDbCommand.ExecuteNonQuery() > 0;
+                    oleDbCommand.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    General.Log(ex.Message, "ERROR");
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+
+            return RESULT;
+
+        }
+
 
 
     }

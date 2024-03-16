@@ -77,6 +77,31 @@ namespace Ventas
 
         }
 
+        public static void TraerProductosPrimeraVez()
+        {
+            //TRAE TODOS LOS PRODUCTOS PARA INICIALIZARLA POR PRIMERA VEZ
+            List<TaskProductos> ListaProductos = Server.TraerTodosLosProductos();
+
+            if (ListaProductos.Count > 0)
+            {
+
+                Local.EliminarProductos();
+
+                List<TaskProductos> ListaTrabajados = Local.AfectarProductos(ListaProductos);
+               
+                if (ListaTrabajados.Count > 0)
+                {
+                    //cargo los productos en memoria
+                    General.CargarDatosDeProductos();
+                }
+
+            }
+            else
+            {
+                General.Log("Productos, Primera vez Error", "INFO");
+            }
+        }
+
         public static void CrearFlagFile()
         {
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             progressBar1 = new ProgressBar();
-            label1 = new Label();
+            lblMensaje = new Label();
             SuspendLayout();
             // 
             // progressBar1
@@ -40,21 +40,23 @@
             progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.TabIndex = 0;
             // 
-            // label1
+            // lblMensaje
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(32, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(257, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Sincronizando Base de datos por favor espere ...";
+            lblMensaje.AutoSize = true;
+            lblMensaje.ForeColor = SystemColors.ControlLightLight;
+            lblMensaje.Location = new Point(32, 32);
+            lblMensaje.Name = "lblMensaje";
+            lblMensaje.Size = new Size(257, 15);
+            lblMensaje.TabIndex = 1;
+            lblMensaje.Text = "Sincronizando Base de datos por favor espere ...";
             // 
             // FrmEsperar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 150, 136);
             ClientSize = new Size(427, 130);
-            Controls.Add(label1);
+            Controls.Add(lblMensaje);
             Controls.Add(progressBar1);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
@@ -70,6 +72,6 @@
         #endregion
 
         private ProgressBar progressBar1;
-        private Label label1;
+        private Label lblMensaje;
     }
 }

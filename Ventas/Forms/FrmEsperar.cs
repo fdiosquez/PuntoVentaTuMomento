@@ -53,8 +53,18 @@ namespace Ventas.Forms
 
             if (_TIPO == 1)
             {
+                General.CargarDatosDeProductos();                
+            }
+
+            if (_TIPO == 2)
+            {
+                Orquestador.TraerProductosPrimeraVez();
+                
+            }
+
+            if (_TIPO == 3)
+            {
                 General.CargarDatosDeProductos();
-                Thread.Sleep(1500);
             }
 
         }

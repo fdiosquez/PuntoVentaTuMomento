@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k3MvXh3/bQsGs64mv1A2L4PNKuJThYuE3YdhrAo0l3MXHmxYiCa+o3CrnPfXyohBmxirFR3KXUqExxXsA27YxA==",
+  "dgSpecHash": "NqPDBjgms5ZRcP+HDUf8+D/H2cPV100VFgNqJ9/Ga3+VLx96lFaE7sEzRSSU+Thm9F/2y6ZMNnuRxzfp4kVjqA==",
   "success": true,
-  "projectFilePath": "F:\\VS2022\\Ventas\\Ventas.csproj",
+  "projectFilePath": "F:\\VS2022\\TuMomentoPtoVta\\Ventas\\Ventas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fernando Diosquez\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
     "C:\\Users\\Fernando Diosquez\\.nuget\\packages\\system.data.oledb\\8.0.0\\system.data.oledb.8.0.0.nupkg.sha512",

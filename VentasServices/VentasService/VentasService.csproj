@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-VentasService-df307fba-481f-425a-8a44-c3d27dcf0876</UserSecretsId>
+	<Version>3.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

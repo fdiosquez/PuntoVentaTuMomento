@@ -78,7 +78,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("VerificaLogin():" + ex.Message, "ERROR");
                 }
                 finally
                 {                 
@@ -138,7 +138,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message,"ERROR");
+                    General.Log("TraerProductosCambios():" + ex.Message,"ERROR");
                 }
                 finally
                 {                    
@@ -180,7 +180,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("MarcarProductos():" + ex.Message, "ERROR");
                 }
                 finally
                 {                    
@@ -236,7 +236,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("SubirPedido():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -289,7 +289,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("SubirPedidoDetalle():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -339,7 +339,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("AfectaStock():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -379,7 +379,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("CancelarPedido():" + ex.Message, "ERROR");
                 }
                 finally
                 {
@@ -427,7 +427,7 @@ namespace VentasService
                 }
                 catch (Exception ex)
                 {
-                    General.Log(ex.Message, "ERROR");
+                    General.Log("RegresaStock():" + ex.Message, "ERROR");
                 }
                 finally
                 {

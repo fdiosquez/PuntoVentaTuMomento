@@ -1810,13 +1810,13 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "3.1.0",
     "restore": {
-      "projectUniqueName": "F:\\VS2022\\VentasServices\\VentasService\\VentasService.csproj",
+      "projectUniqueName": "F:\\VS2022\\TuMomentoPtoVta\\VentasServices\\VentasService\\VentasService.csproj",
       "projectName": "VentasService",
-      "projectPath": "F:\\VS2022\\VentasServices\\VentasService\\VentasService.csproj",
+      "projectPath": "F:\\VS2022\\TuMomentoPtoVta\\VentasServices\\VentasService\\VentasService.csproj",
       "packagesPath": "C:\\Users\\Fernando Diosquez\\.nuget\\packages\\",
-      "outputPath": "F:\\VS2022\\VentasServices\\VentasService\\obj\\",
+      "outputPath": "F:\\VS2022\\TuMomentoPtoVta\\VentasServices\\VentasService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

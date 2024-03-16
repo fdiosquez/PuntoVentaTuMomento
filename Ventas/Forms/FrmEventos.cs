@@ -120,7 +120,10 @@ namespace Ventas.Forms
             SetColorTheme();
             ActivateButton(btnFechaHoy);
         }
-
+        public void Refrescar() 
+        {
+            ActivateButton(btnFechaHoy);
+        }
         private void Buscar()
         {
 

@@ -158,6 +158,66 @@ namespace Ventas
         }
 
 
+        public static List<TaskProductos> TraerTodosLosProductos()
+        {
+            /*		
+             TRAE TODOS LOS PRODUCTOS DEL SERVIDOR
+             */
+
+            List<TaskProductos> modificadosDesdeServer = new List<TaskProductos>();
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectStringMySql()))
+            {
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    connection.Open();
+                    string SQL = @"SELECT   id_producto AS task_id_producto, 
+                                            'A' AS tipo, 
+                                            id_producto, 
+                                            codigo_producto, 
+                                            codigo_barra, 
+                                            descripcion, 
+                                            stock, 
+                                            precio 
+                                    FROM productos 
+                                    order by id_producto";
+
+
+                    MySqlDataReader mySqlDataReader = new MySqlCommand(SQL, connection).ExecuteReader();
+                    if (mySqlDataReader.HasRows)
+                    {
+                        while (mySqlDataReader.Read())
+                            modificadosDesdeServer.Add(new TaskProductos()
+                            {
+
+                                task_id_producto = Convert.ToInt32(mySqlDataReader["task_id_producto"]),
+                                tipo = Convert.ToString(mySqlDataReader["tipo"]),
+                                id_producto = Convert.ToInt32(mySqlDataReader["id_producto"]),
+                                codigo_producto = Convert.ToString(mySqlDataReader["codigo_producto"]),
+                                codigo_barra = Convert.ToString(mySqlDataReader["codigo_barra"]),
+                                descripcion = Convert.ToString(mySqlDataReader["descripcion"]),
+                                stock = Convert.ToInt32(mySqlDataReader["stock"]),
+                                precio = Convert.ToDouble(mySqlDataReader["precio"])
+
+                            });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    General.Log(ex.Message, "ERROR");
+                }
+                finally
+                {
+                    Cursor.Current = Cursors.Default;
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            return modificadosDesdeServer;
+
+        }
+
 
         public static void MarcarProductos(List<TaskProductos> pro)
         {

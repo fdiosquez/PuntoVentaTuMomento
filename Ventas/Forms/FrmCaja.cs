@@ -34,6 +34,10 @@ namespace Ventas.Forms
             DisableButtonFecha();
             ActivateButton(btnFechaHoy);
         }
+        public void Refrescar()
+        {
+            ActivateButton(btnFechaHoy);
+        }
 
         private void Imprimir(int id_caja)
         {

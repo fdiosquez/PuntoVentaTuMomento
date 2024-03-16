@@ -35,6 +35,11 @@ namespace Ventas.Forms
             PerformLayout();
         }
 
+        public void Refrescar() 
+        {
+            ActivateButton(btnFechaHoy);
+        }
+
         private void Imprimir(int id_pedido)
         {
 

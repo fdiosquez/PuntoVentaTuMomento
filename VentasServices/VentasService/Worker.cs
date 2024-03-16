@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using System.Reflection;
 
 namespace VentasService
 {
@@ -37,9 +38,15 @@ namespace VentasService
 
                 if (FlagFirstTime)
                 {
-                    General.Log("---------Ventas Services Conectado!", "INFO");
+                    Version version = Assembly.GetEntryAssembly().GetName().Version;
 
-                    FlagFirstTime=false;
+                    string TextVersion = string.Format("Ventas Services v{0}.{1}", version.Major, version.Minor);
+
+                    General.Log("---------Ventas Services Conectado!", "INFO");
+                    General.Log(TextVersion, "INFO");
+                    
+
+                    FlagFirstTime =false;
                 }
                 
 
