@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static Mysqlx.Crud.Order.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Ventas
 {
@@ -30,6 +32,8 @@ namespace Ventas
         static public int _ID_CAJA_ACTUAL = 0;
 
         static public List<Producto> _LISTA_PRODUCTOS = new();
+
+        static public List<Cliente> _LISTA_CLIENTES = new();
 
         public static string GetConnectionString()
         {
@@ -62,7 +66,7 @@ namespace Ventas
             CargarConfiguracion();
         }
 
-        public static void CargarDatosDeProductos()
+        public static void CargarDatosDeClientes()
         {
 
             OleDbDataReader Dr;
@@ -74,32 +78,25 @@ namespace Ventas
 
                 DataTable Dt = new();
 
-                string  Sql = @"SELECT PRODUCTOS.ID_PRODUCTO, 
-                                       UCASE(PRODUCTOS.CODIGO_PRODUCTO) AS [CODIGO_PRODUCTO], 
-                                       UCASE(PRODUCTOS.DESCRIPCION) AS [DESCRIPCION], 
-                                       PRODUCTOS.PRECIO_VENTA,
-                                       PRODUCTOS.CODIGO_BARRA, 
-                                       PRODUCTOS.FECHA_MODIFICACION,
-                                       PRODUCTOS.STOCK
-                                 FROM PRODUCTOS";
+                string  Sql = @"SELECT * FROM CLIENTES";
 
                 Cnn = new OleDbConnection(GetConnectionString());
                 Cnn.Open();
 
                 Cmd = new OleDbCommand(Sql, Cnn);                
                 Dr = Cmd.ExecuteReader();
-                _LISTA_PRODUCTOS.Clear();
+                _LISTA_CLIENTES.Clear();
                 while (Dr.Read())
                 {
-                   
-                    _LISTA_PRODUCTOS.Add(new Producto() { 
-                        ID_PRODUCTO = Convert.ToInt32( Dr["ID_PRODUCTO"]),
-                        CODIGO_PRODUCTO = (DBNull.Value.Equals(Dr["CODIGO_PRODUCTO"])) ? "" : Dr["CODIGO_PRODUCTO"].ToString() ,
+                      
+                    _LISTA_CLIENTES.Add(new Cliente() { 
+                        ID_CLIENTE = Convert.ToInt32( Dr["ID_CLIENTE"]),
+                        DIRECCION = (DBNull.Value.Equals(Dr["DIRECCION"])) ? "" : Dr["DIRECCION"].ToString() ,
                         DESCRIPCION = (DBNull.Value.Equals(Dr["DESCRIPCION"])) ? "" : Dr["DESCRIPCION"].ToString() ,
-                        CODIGO_BARRA = (DBNull.Value.Equals(Dr["CODIGO_BARRA"])) ? "" : Dr["CODIGO_BARRA"].ToString(),
-                        PRECIO_VENTA = (DBNull.Value.Equals(Dr["DESCRIPCION"])) ? 0 :  Math.Round( Convert.ToDouble( Dr["PRECIO_VENTA"]),2) ,
-                        FECHA_MODIFICACION = (DBNull.Value.Equals(Dr["FECHA_MODIFICACION"])) ? null : Convert.ToDateTime(Dr["FECHA_MODIFICACION"]),
-                        STOCK = (DBNull.Value.Equals(Dr["STOCK"])) ? 0 : Convert.ToInt32(Dr["STOCK"])
+                        TELEFONO = (DBNull.Value.Equals(Dr["TELEFONO"])) ? "" : Dr["TELEFONO"].ToString(),
+                        EMAIL = (DBNull.Value.Equals(Dr["EMAIL"])) ? "" :  Dr["EMAIL"].ToString(),
+                        SALDO = (DBNull.Value.Equals(Dr["SALDO"])) ? 0 : Convert.ToDouble(Dr["SALDO"]),
+                        SISTEMA = (DBNull.Value.Equals(Dr["SISTEMA"])) ? false : Convert.ToBoolean(Dr["SISTEMA"])
                     });
 
                 }
@@ -115,7 +112,61 @@ namespace Ventas
             }
         }
 
-        
+
+        public static void CargarDatosDeProductos()
+        {
+
+            OleDbDataReader Dr;
+            OleDbConnection Cnn;
+            OleDbCommand Cmd;
+
+            try
+            {
+
+                DataTable Dt = new();
+
+                string Sql = @"SELECT PRODUCTOS.ID_PRODUCTO, 
+                                       UCASE(PRODUCTOS.CODIGO_PRODUCTO) AS [CODIGO_PRODUCTO], 
+                                       UCASE(PRODUCTOS.DESCRIPCION) AS [DESCRIPCION], 
+                                       PRODUCTOS.PRECIO_VENTA,
+                                       PRODUCTOS.CODIGO_BARRA, 
+                                       PRODUCTOS.FECHA_MODIFICACION,
+                                       PRODUCTOS.STOCK
+                                 FROM PRODUCTOS";
+
+                Cnn = new OleDbConnection(GetConnectionString());
+                Cnn.Open();
+
+                Cmd = new OleDbCommand(Sql, Cnn);
+                Dr = Cmd.ExecuteReader();
+                _LISTA_PRODUCTOS.Clear();
+                while (Dr.Read())
+                {
+
+                    _LISTA_PRODUCTOS.Add(new Producto()
+                    {
+                        ID_PRODUCTO = Convert.ToInt32(Dr["ID_PRODUCTO"]),
+                        CODIGO_PRODUCTO = (DBNull.Value.Equals(Dr["CODIGO_PRODUCTO"])) ? "" : Dr["CODIGO_PRODUCTO"].ToString(),
+                        DESCRIPCION = (DBNull.Value.Equals(Dr["DESCRIPCION"])) ? "" : Dr["DESCRIPCION"].ToString(),
+                        CODIGO_BARRA = (DBNull.Value.Equals(Dr["CODIGO_BARRA"])) ? "" : Dr["CODIGO_BARRA"].ToString(),
+                        PRECIO_VENTA = (DBNull.Value.Equals(Dr["DESCRIPCION"])) ? 0 : Math.Round(Convert.ToDouble(Dr["PRECIO_VENTA"]), 2),
+                        FECHA_MODIFICACION = (DBNull.Value.Equals(Dr["FECHA_MODIFICACION"])) ? null : Convert.ToDateTime(Dr["FECHA_MODIFICACION"]),
+                        STOCK = (DBNull.Value.Equals(Dr["STOCK"])) ? 0 : Convert.ToInt32(Dr["STOCK"])
+                    });
+
+                }
+
+
+                Dr.Close();
+                Cnn.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         public static int GetIso8601WeekOfYear(DateTime time)
         {
             DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
@@ -186,7 +237,10 @@ namespace Ventas
                     case 7:
                     case 8:
                         SQL = "SELECT ID_CAJA_TIPO,DESCRIPCION FROM CAJA_TIPO WHERE ID_CAJA_TIPO IN( 7,8) ORDER BY DESCRIPCION";
-                        break;                    
+                        break;
+                    case 9:
+                        SQL = "SELECT ID_CAJA_TIPO,DESCRIPCION FROM CAJA_TIPO WHERE ID_CAJA_TIPO IN( 2,3,4,5) ORDER BY ID_CAJA_TIPO";
+                        break;
                     default:
                         Console.WriteLine("Número no reconocido.");
                         break;
@@ -238,6 +292,20 @@ namespace Ventas
             }
 
         }
+
+
+        public static Producto ConvertTaskProductoToProducto(TaskProductos Tp)
+        {
+            Producto producto = new Producto();
+            producto.ID_PRODUCTO = Tp.id_producto;
+            producto.CODIGO_BARRA = Tp.codigo_barra;
+            producto.CODIGO_PRODUCTO = Tp.codigo_producto;
+            producto.STOCK = Tp.stock;
+            producto.PRECIO_VENTA = Tp.precio;
+            return producto;
+        }
+
+
 
     }
 }

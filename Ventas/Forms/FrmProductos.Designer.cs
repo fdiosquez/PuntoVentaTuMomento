@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             dgPedidos = new DataGridView();
             panelTitleBar = new Panel();
-            btnCerrar = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnEliminar = new Button();
+            btnModificar = new Button();
+            btnNuevo = new Button();
             btnDetalle = new Button();
             btnNuevoMov = new Button();
             button1 = new Button();
@@ -68,13 +68,14 @@
             dgPedidos.RowTemplate.Height = 25;
             dgPedidos.Size = new Size(903, 372);
             dgPedidos.TabIndex = 24;
+            dgPedidos.CellDoubleClick += dgPedidos_CellDoubleClick;
             // 
             // panelTitleBar
             // 
             panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
-            panelTitleBar.Controls.Add(btnCerrar);
-            panelTitleBar.Controls.Add(button2);
-            panelTitleBar.Controls.Add(button3);
+            panelTitleBar.Controls.Add(btnEliminar);
+            panelTitleBar.Controls.Add(btnModificar);
+            panelTitleBar.Controls.Add(btnNuevo);
             panelTitleBar.Controls.Add(btnDetalle);
             panelTitleBar.Controls.Add(btnNuevoMov);
             panelTitleBar.Controls.Add(button1);
@@ -87,47 +88,50 @@
             panelTitleBar.Size = new Size(931, 74);
             panelTitleBar.TabIndex = 25;
             // 
-            // btnCerrar
+            // btnEliminar
             // 
-            btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCerrar.Image = Properties.Resources.factura_blanco_x24;
-            btnCerrar.ImageAlign = ContentAlignment.TopCenter;
-            btnCerrar.Location = new Point(812, 6);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(95, 59);
-            btnCerrar.TabIndex = 10;
-            btnCerrar.Text = "F8 - Eliminar";
-            btnCerrar.TextAlign = ContentAlignment.BottomCenter;
-            btnCerrar.UseVisualStyleBackColor = true;
-            btnCerrar.Visible = false;
+            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEliminar.Image = Properties.Resources.eliminar_x24_blanco;
+            btnEliminar.ImageAlign = ContentAlignment.TopCenter;
+            btnEliminar.Location = new Point(812, 6);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(95, 59);
+            btnEliminar.TabIndex = 10;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.TextAlign = ContentAlignment.BottomCenter;
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Visible = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
-            // button2
+            // btnModificar
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.Image = Properties.Resources.impresora_blanco_x241;
-            button2.ImageAlign = ContentAlignment.TopCenter;
-            button2.Location = new Point(709, 6);
-            button2.Name = "button2";
-            button2.Size = new Size(95, 59);
-            button2.TabIndex = 9;
-            button2.Text = "F6 - Modificar";
-            button2.TextAlign = ContentAlignment.BottomCenter;
-            button2.UseVisualStyleBackColor = true;
-            button2.Visible = false;
+            btnModificar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnModificar.Image = Properties.Resources.editar_24_blanco;
+            btnModificar.ImageAlign = ContentAlignment.TopCenter;
+            btnModificar.Location = new Point(709, 6);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(95, 59);
+            btnModificar.TabIndex = 9;
+            btnModificar.Text = "Modificar";
+            btnModificar.TextAlign = ContentAlignment.BottomCenter;
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Visible = false;
+            btnModificar.Click += btnModificar_Click;
             // 
-            // button3
+            // btnNuevo
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button3.Image = Properties.Resources.flujo_de_efectivo;
-            button3.ImageAlign = ContentAlignment.TopCenter;
-            button3.Location = new Point(601, 6);
-            button3.Name = "button3";
-            button3.Size = new Size(95, 59);
-            button3.TabIndex = 8;
-            button3.Text = "F5 - Nuevo";
-            button3.TextAlign = ContentAlignment.BottomCenter;
-            button3.UseVisualStyleBackColor = true;
-            button3.Visible = false;
+            btnNuevo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnNuevo.Image = (Image)resources.GetObject("btnNuevo.Image");
+            btnNuevo.ImageAlign = ContentAlignment.TopCenter;
+            btnNuevo.Location = new Point(601, 6);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(95, 59);
+            btnNuevo.TabIndex = 8;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.TextAlign = ContentAlignment.BottomCenter;
+            btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Visible = false;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // btnDetalle
             // 
@@ -260,8 +264,8 @@
         private Label label1;
         private Button btnBuscar;
         private TextBox txtInput;
-        private Button btnCerrar;
-        private Button button2;
-        private Button button3;
+        private Button btnEliminar;
+        private Button btnModificar;
+        private Button btnNuevo;
     }
 }

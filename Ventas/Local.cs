@@ -10,6 +10,9 @@ using MySql.Data.MySqlClient;
 using Mysqlx;
 using Microsoft.VisualBasic;
 using Mysqlx.Crud;
+using static Mysqlx.Crud.Order.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Drawing;
 
 namespace Ventas
 {
@@ -462,6 +465,91 @@ namespace Ventas
 
         }
 
+
+        public static int TraerUltimoIdProducto()
+        {
+            OleDbDataReader Dr;
+            OleDbCommand Cmd;
+
+            int ID_PRODUCTO = 1; //si no hay envia 1 como el primero
+
+            using (OleDbConnection connection = new OleDbConnection(General.GetConnectionString()))
+            {
+                try
+                {
+                    string sql = @"SELECT MAX(PRODUCTOS.ID_PRODUCTO) AS [ID_PRODUCTO] FROM PRODUCTOS;";
+                    connection.Open();
+                    Cmd = new OleDbCommand(sql, connection);
+                    Dr = Cmd.ExecuteReader();
+                    if(Dr.Read())
+                    {
+                        ID_PRODUCTO = Convert.ToInt32(Dr["ID_PRODUCTO"]) + 1;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    General.Log("TraerUltimoIdProducto():" + ex.Message, "ERROR");
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            return ID_PRODUCTO;
+        }
+
+
+        //        ID_CLIENTE DESCRIPCION DIRECCION TELEFONO    EMAIL SALDO   SISTEMA
+
+
+        public static bool GrabaCliente(Cliente Cli)
+        {
+
+            /*
+                GRABA UN CLIENTE
+            */
+            bool result = false;
+            using (OleDbConnection connection = new OleDbConnection(General.GetConnectionString()))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string SQL = @"INSERT INTO CLIENTES (DESCRIPCION,DIRECCION,TELEFONO,EMAIL,SALDO)
+                                    VALUES (@DESCRIPCION,@DIRECCION,@TELEFONO,@EMAIL,@SALDO)";
+                    OleDbCommand oleDbCommand = new OleDbCommand(SQL, connection);
+                    oleDbCommand.CommandType = CommandType.Text;
+                    oleDbCommand.Parameters.Add(new OleDbParameter("@DESCRIPCION", Cli.DESCRIPCION));
+                    oleDbCommand.Parameters.Add(new OleDbParameter("@DIRECCION", Cli.DIRECCION ));
+                    oleDbCommand.Parameters.Add(new OleDbParameter("@TELEFONO", Cli.TELEFONO));
+                    oleDbCommand.Parameters.Add(new OleDbParameter("@EMAIL", Cli.EMAIL ));
+                    oleDbCommand.Parameters.Add(new OleDbParameter("@SALDO", Cli.SALDO));
+
+                    if (oleDbCommand.ExecuteNonQuery() > 0)
+                        result = true;
+
+                    
+                    
+
+
+                }
+                catch (Exception ex)
+                {
+                    General.Log(ex.Message, "ERROR");
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            
+
+            return result;
+
+        }
 
 
     }

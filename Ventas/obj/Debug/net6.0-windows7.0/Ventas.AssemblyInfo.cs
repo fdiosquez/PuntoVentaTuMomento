@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ventas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("3.12.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.12.0+444398c5ff025678e830b35cf2326f5181fa7438")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("3.15.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.15.0+b606b51b5af5ebd63d806ced8627c465b7468d84")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ventas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ventas")]
-[assembly: System.Reflection.AssemblyVersionAttribute("3.12.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("3.15.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

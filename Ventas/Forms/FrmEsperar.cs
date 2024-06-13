@@ -65,6 +65,7 @@ namespace Ventas.Forms
             if (_TIPO == 3)
             {
                 General.CargarDatosDeProductos();
+                General.CargarDatosDeClientes();
             }
 
         }

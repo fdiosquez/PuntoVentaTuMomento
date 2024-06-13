@@ -183,6 +183,16 @@ namespace Ventas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap casilla_de_verificacionX24 {
+            get {
+                object obj = ResourceManager.GetObject("casilla-de-verificacionX24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_blanco_x16 {
             get {
                 object obj = ResourceManager.GetObject("check_blanco_x16", resourceCulture);
@@ -216,6 +226,16 @@ namespace Ventas.Properties {
         internal static System.Drawing.Bitmap codigo_qr_negro {
             get {
                 object obj = ResourceManager.GetObject("codigo_qr_negro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dedoX24 {
+            get {
+                object obj = ResourceManager.GetObject("dedoX24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +286,36 @@ namespace Ventas.Properties {
         internal static System.Drawing.Bitmap dinero_negro {
             get {
                 object obj = ResourceManager.GetObject("dinero_negro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dineroX32 {
+            get {
+                object obj = ResourceManager.GetObject("dineroX32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editar_24_blanco {
+            get {
+                object obj = ResourceManager.GetObject("editar-24-blanco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eliminar_x24_blanco {
+            get {
+                object obj = ResourceManager.GetObject("eliminar-x24-blanco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -326,6 +376,16 @@ namespace Ventas.Properties {
         internal static System.Drawing.Bitmap impresora_blanco_x241 {
             get {
                 object obj = ResourceManager.GetObject("impresora_blanco_x241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nueva_pagina {
+            get {
+                object obj = ResourceManager.GetObject("nueva-pagina", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

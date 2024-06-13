@@ -1,0 +1,14 @@
+# DOCUMENTACION Y EJEMPLOS DE LA GRILLA
+
+https://datatables.net/
+
+# DOCUMENTACION Y EJEMPLOS DEL COMBO BOX CON BUSQUEDA
+
+https://select2.org/
+
+# DOCUMENTACION PARA FPDF
+
+http://www.fpdf.org/
+
+# DOCUMENTACION PARA GRAFICO ESTADISTICO
+https://www.chartjs.org

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentaMetodoPago));
             btnQR = new Button();
             btnTransferencia = new Button();
             btnEfectivo = new Button();
@@ -66,11 +67,29 @@
             txtMixtoTransferencia = new TextBox();
             label3 = new Label();
             txtMixtoEfectivo = new TextBox();
+            btnCliente = new Button();
+            panelCliente = new Panel();
+            gBoxTipoVenta = new GroupBox();
+            rdoCuentaCorriente = new RadioButton();
+            rdoVentaDirecta = new RadioButton();
+            btnCancelarCliente = new Button();
+            btnAceptarCliente = new Button();
+            btnBuscar2 = new Button();
+            btnNuevoCliente = new Button();
+            btnBuscar = new Button();
+            label14 = new Label();
+            txtEmail = new TextBox();
+            label13 = new Label();
+            txtNombreCompleto = new TextBox();
+            label12 = new Label();
+            txtTelefono = new TextBox();
             panelTitleBar.SuspendLayout();
             panelEfectivo.SuspendLayout();
             panelDescuento.SuspendLayout();
             panelReferencia.SuspendLayout();
             panelMixto.SuspendLayout();
+            panelCliente.SuspendLayout();
+            gBoxTipoVenta.SuspendLayout();
             SuspendLayout();
             // 
             // btnQR
@@ -78,7 +97,7 @@
             btnQR.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnQR.Image = Properties.Resources.codigo_qr_negro;
             btnQR.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQR.Location = new Point(418, 48);
+            btnQR.Location = new Point(377, 48);
             btnQR.Name = "btnQR";
             btnQR.Size = new Size(116, 34);
             btnQR.TabIndex = 15;
@@ -92,7 +111,7 @@
             btnTransferencia.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnTransferencia.Image = Properties.Resources.banco_negro;
             btnTransferencia.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTransferencia.Location = new Point(174, 48);
+            btnTransferencia.Location = new Point(133, 48);
             btnTransferencia.Name = "btnTransferencia";
             btnTransferencia.Size = new Size(116, 34);
             btnTransferencia.TabIndex = 14;
@@ -106,7 +125,7 @@
             btnEfectivo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEfectivo.Image = Properties.Resources.dinero_negro;
             btnEfectivo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEfectivo.Location = new Point(52, 48);
+            btnEfectivo.Location = new Point(11, 48);
             btnEfectivo.Name = "btnEfectivo";
             btnEfectivo.Size = new Size(116, 34);
             btnEfectivo.TabIndex = 13;
@@ -120,7 +139,7 @@
             btnDebito.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnDebito.Image = Properties.Resources.tarjetas_de_credito_negro;
             btnDebito.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDebito.Location = new Point(296, 48);
+            btnDebito.Location = new Point(255, 48);
             btnDebito.Name = "btnDebito";
             btnDebito.Size = new Size(116, 34);
             btnDebito.TabIndex = 12;
@@ -134,7 +153,7 @@
             btnMixto.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMixto.Image = Properties.Resources.transferencia_movil_negro;
             btnMixto.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMixto.Location = new Point(540, 48);
+            btnMixto.Location = new Point(499, 48);
             btnMixto.Name = "btnMixto";
             btnMixto.Size = new Size(116, 34);
             btnMixto.TabIndex = 16;
@@ -149,7 +168,7 @@
             btnDescuento.BackColor = Color.FromArgb(224, 224, 224);
             btnDescuento.Image = Properties.Resources.descuento_negro;
             btnDescuento.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDescuento.Location = new Point(662, 48);
+            btnDescuento.Location = new Point(621, 48);
             btnDescuento.Name = "btnDescuento";
             btnDescuento.Size = new Size(116, 34);
             btnDescuento.TabIndex = 17;
@@ -170,7 +189,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(0, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(797, 42);
+            panelTitleBar.Size = new Size(874, 42);
             panelTitleBar.TabIndex = 18;
             // 
             // lblTotalFinal
@@ -179,7 +198,7 @@
             lblTotalFinal.AutoSize = true;
             lblTotalFinal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTotalFinal.ForeColor = Color.White;
-            lblTotalFinal.Location = new Point(684, 9);
+            lblTotalFinal.Location = new Point(714, 9);
             lblTotalFinal.Name = "lblTotalFinal";
             lblTotalFinal.Size = new Size(101, 21);
             lblTotalFinal.TabIndex = 5;
@@ -191,7 +210,7 @@
             labelTotalFinal.AutoSize = true;
             labelTotalFinal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelTotalFinal.ForeColor = Color.White;
-            labelTotalFinal.Location = new Point(586, 9);
+            labelTotalFinal.Location = new Point(616, 9);
             labelTotalFinal.Name = "labelTotalFinal";
             labelTotalFinal.Size = new Size(106, 21);
             labelTotalFinal.TabIndex = 4;
@@ -203,7 +222,7 @@
             lblDescuento.AutoSize = true;
             lblDescuento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblDescuento.ForeColor = Color.White;
-            lblDescuento.Location = new Point(418, 9);
+            lblDescuento.Location = new Point(421, 9);
             lblDescuento.Name = "lblDescuento";
             lblDescuento.Size = new Size(41, 21);
             lblDescuento.TabIndex = 3;
@@ -215,7 +234,7 @@
             labelDescuento.AutoSize = true;
             labelDescuento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelDescuento.ForeColor = Color.White;
-            labelDescuento.Location = new Point(318, 9);
+            labelDescuento.Location = new Point(321, 9);
             labelDescuento.Name = "labelDescuento";
             labelDescuento.Size = new Size(105, 21);
             labelDescuento.TabIndex = 2;
@@ -227,7 +246,7 @@
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTotal.ForeColor = Color.White;
-            lblTotal.Location = new Point(118, 9);
+            lblTotal.Location = new Point(124, 9);
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(101, 21);
             lblTotal.TabIndex = 1;
@@ -239,7 +258,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(11, 9);
+            lblTitle.Location = new Point(17, 9);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(111, 21);
             lblTitle.TabIndex = 0;
@@ -252,9 +271,9 @@
             panelEfectivo.Controls.Add(txtEfectivoVuelto);
             panelEfectivo.Controls.Add(label6);
             panelEfectivo.Controls.Add(txtEfectivoPaga);
-            panelEfectivo.Location = new Point(52, 91);
+            panelEfectivo.Location = new Point(12, 91);
             panelEfectivo.Name = "panelEfectivo";
-            panelEfectivo.Size = new Size(726, 185);
+            panelEfectivo.Size = new Size(848, 185);
             panelEfectivo.TabIndex = 19;
             // 
             // label7
@@ -268,13 +287,12 @@
             // 
             // txtEfectivoVuelto
             // 
-            txtEfectivoVuelto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtEfectivoVuelto.BorderStyle = BorderStyle.FixedSingle;
             txtEfectivoVuelto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEfectivoVuelto.Location = new Point(121, 59);
             txtEfectivoVuelto.Name = "txtEfectivoVuelto";
             txtEfectivoVuelto.ReadOnly = true;
-            txtEfectivoVuelto.Size = new Size(116, 29);
+            txtEfectivoVuelto.Size = new Size(98, 29);
             txtEfectivoVuelto.TabIndex = 5;
             txtEfectivoVuelto.Text = "0";
             txtEfectivoVuelto.TextAlign = HorizontalAlignment.Right;
@@ -291,12 +309,11 @@
             // 
             // txtEfectivoPaga
             // 
-            txtEfectivoPaga.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtEfectivoPaga.BorderStyle = BorderStyle.FixedSingle;
             txtEfectivoPaga.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEfectivoPaga.Location = new Point(121, 24);
             txtEfectivoPaga.Name = "txtEfectivoPaga";
-            txtEfectivoPaga.Size = new Size(116, 29);
+            txtEfectivoPaga.Size = new Size(98, 29);
             txtEfectivoPaga.TabIndex = 3;
             txtEfectivoPaga.TextAlign = HorizontalAlignment.Right;
             txtEfectivoPaga.TextChanged += txtEfectivoPaga_TextChanged;
@@ -307,9 +324,9 @@
             btnAceptar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAceptar.BackColor = Color.FromArgb(224, 224, 224);
             btnAceptar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAceptar.Location = new Point(662, 282);
+            btnAceptar.Location = new Point(722, 282);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(116, 34);
+            btnAceptar.Size = new Size(137, 34);
             btnAceptar.TabIndex = 20;
             btnAceptar.Text = "Aceptar";
             btnAceptar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -321,7 +338,7 @@
             btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCancelar.BackColor = Color.FromArgb(224, 224, 224);
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(51, 282);
+            btnCancelar.Location = new Point(12, 282);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 34);
             btnCancelar.TabIndex = 21;
@@ -335,9 +352,9 @@
             panelDescuento.BorderStyle = BorderStyle.FixedSingle;
             panelDescuento.Controls.Add(label2);
             panelDescuento.Controls.Add(txtPorcentajeDescuento);
-            panelDescuento.Location = new Point(52, 335);
+            panelDescuento.Location = new Point(12, 320);
             panelDescuento.Name = "panelDescuento";
-            panelDescuento.Size = new Size(726, 185);
+            panelDescuento.Size = new Size(842, 185);
             panelDescuento.TabIndex = 22;
             // 
             // label2
@@ -356,7 +373,7 @@
             txtPorcentajeDescuento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtPorcentajeDescuento.Location = new Point(121, 24);
             txtPorcentajeDescuento.Name = "txtPorcentajeDescuento";
-            txtPorcentajeDescuento.Size = new Size(117, 29);
+            txtPorcentajeDescuento.Size = new Size(98, 29);
             txtPorcentajeDescuento.TabIndex = 3;
             txtPorcentajeDescuento.TextAlign = HorizontalAlignment.Right;
             txtPorcentajeDescuento.TextChanged += txtPorcentajeDescuento_TextChanged;
@@ -367,9 +384,9 @@
             panelReferencia.BorderStyle = BorderStyle.FixedSingle;
             panelReferencia.Controls.Add(label1);
             panelReferencia.Controls.Add(txtReferencia);
-            panelReferencia.Location = new Point(759, 522);
+            panelReferencia.Location = new Point(886, 667);
             panelReferencia.Name = "panelReferencia";
-            panelReferencia.Size = new Size(726, 185);
+            panelReferencia.Size = new Size(842, 185);
             panelReferencia.TabIndex = 23;
             // 
             // label1
@@ -383,7 +400,6 @@
             // 
             // txtReferencia
             // 
-            txtReferencia.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtReferencia.BorderStyle = BorderStyle.FixedSingle;
             txtReferencia.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtReferencia.Location = new Point(121, 24);
@@ -405,9 +421,9 @@
             panelMixto.Controls.Add(txtMixtoTransferencia);
             panelMixto.Controls.Add(label3);
             panelMixto.Controls.Add(txtMixtoEfectivo);
-            panelMixto.Location = new Point(52, 526);
+            panelMixto.Location = new Point(860, 439);
             panelMixto.Name = "panelMixto";
-            panelMixto.Size = new Size(726, 185);
+            panelMixto.Size = new Size(842, 185);
             panelMixto.TabIndex = 24;
             // 
             // lblMixtoResta
@@ -450,7 +466,6 @@
             // 
             // txtMixtoQR
             // 
-            txtMixtoQR.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtMixtoQR.BorderStyle = BorderStyle.FixedSingle;
             txtMixtoQR.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMixtoQR.Location = new Point(121, 110);
@@ -472,7 +487,6 @@
             // 
             // txtMixtoDebito
             // 
-            txtMixtoDebito.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtMixtoDebito.BorderStyle = BorderStyle.FixedSingle;
             txtMixtoDebito.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMixtoDebito.Location = new Point(121, 75);
@@ -494,7 +508,6 @@
             // 
             // txtMixtoTransferencia
             // 
-            txtMixtoTransferencia.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtMixtoTransferencia.BorderStyle = BorderStyle.FixedSingle;
             txtMixtoTransferencia.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMixtoTransferencia.Location = new Point(121, 40);
@@ -516,7 +529,6 @@
             // 
             // txtMixtoEfectivo
             // 
-            txtMixtoEfectivo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtMixtoEfectivo.BorderStyle = BorderStyle.FixedSingle;
             txtMixtoEfectivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMixtoEfectivo.Location = new Point(121, 5);
@@ -527,11 +539,199 @@
             txtMixtoEfectivo.TextChanged += txtMixtoEfectivo_TextChanged;
             txtMixtoEfectivo.KeyPress += txtMixtoEfectivo_KeyPress;
             // 
+            // btnCliente
+            // 
+            btnCliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCliente.BackColor = Color.FromArgb(224, 224, 224);
+            btnCliente.Image = Properties.Resources.descuento_negro;
+            btnCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCliente.Location = new Point(743, 48);
+            btnCliente.Name = "btnCliente";
+            btnCliente.Size = new Size(116, 34);
+            btnCliente.TabIndex = 25;
+            btnCliente.Text = "Clientes";
+            btnCliente.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCliente.UseVisualStyleBackColor = false;
+            btnCliente.Click += btnCliente_Click;
+            // 
+            // panelCliente
+            // 
+            panelCliente.BorderStyle = BorderStyle.FixedSingle;
+            panelCliente.Controls.Add(gBoxTipoVenta);
+            panelCliente.Controls.Add(btnCancelarCliente);
+            panelCliente.Controls.Add(btnAceptarCliente);
+            panelCliente.Controls.Add(btnBuscar2);
+            panelCliente.Controls.Add(btnNuevoCliente);
+            panelCliente.Controls.Add(btnBuscar);
+            panelCliente.Controls.Add(label14);
+            panelCliente.Controls.Add(txtEmail);
+            panelCliente.Controls.Add(label13);
+            panelCliente.Controls.Add(txtNombreCompleto);
+            panelCliente.Controls.Add(label12);
+            panelCliente.Controls.Add(txtTelefono);
+            panelCliente.Location = new Point(12, 522);
+            panelCliente.Name = "panelCliente";
+            panelCliente.Size = new Size(842, 185);
+            panelCliente.TabIndex = 26;
+            // 
+            // gBoxTipoVenta
+            // 
+            gBoxTipoVenta.Controls.Add(rdoCuentaCorriente);
+            gBoxTipoVenta.Controls.Add(rdoVentaDirecta);
+            gBoxTipoVenta.Location = new Point(21, 11);
+            gBoxTipoVenta.Name = "gBoxTipoVenta";
+            gBoxTipoVenta.Size = new Size(239, 96);
+            gBoxTipoVenta.TabIndex = 34;
+            gBoxTipoVenta.TabStop = false;
+            gBoxTipoVenta.Text = "Tipo de Venta";
+            // 
+            // rdoCuentaCorriente
+            // 
+            rdoCuentaCorriente.AutoSize = true;
+            rdoCuentaCorriente.Location = new Point(24, 47);
+            rdoCuentaCorriente.Name = "rdoCuentaCorriente";
+            rdoCuentaCorriente.Size = new Size(115, 19);
+            rdoCuentaCorriente.TabIndex = 1;
+            rdoCuentaCorriente.Text = "Cuenta Corriente";
+            rdoCuentaCorriente.UseVisualStyleBackColor = true;
+            rdoCuentaCorriente.CheckedChanged += rdoCuentaCorriente_CheckedChanged;
+            // 
+            // rdoVentaDirecta
+            // 
+            rdoVentaDirecta.AutoSize = true;
+            rdoVentaDirecta.Checked = true;
+            rdoVentaDirecta.Location = new Point(24, 22);
+            rdoVentaDirecta.Name = "rdoVentaDirecta";
+            rdoVentaDirecta.Size = new Size(94, 19);
+            rdoVentaDirecta.TabIndex = 0;
+            rdoVentaDirecta.TabStop = true;
+            rdoVentaDirecta.Text = "Venta Directa";
+            rdoVentaDirecta.UseVisualStyleBackColor = true;
+            rdoVentaDirecta.CheckedChanged += rdoVentaDirecta_CheckedChanged;
+            // 
+            // btnCancelarCliente
+            // 
+            btnCancelarCliente.BackColor = Color.FromArgb(224, 224, 224);
+            btnCancelarCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancelarCliente.Location = new Point(594, 130);
+            btnCancelarCliente.Name = "btnCancelarCliente";
+            btnCancelarCliente.Size = new Size(116, 31);
+            btnCancelarCliente.TabIndex = 33;
+            btnCancelarCliente.Text = "Cancelar";
+            btnCancelarCliente.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCancelarCliente.UseVisualStyleBackColor = false;
+            btnCancelarCliente.Click += btnCancelarCliente_Click;
+            // 
+            // btnAceptarCliente
+            // 
+            btnAceptarCliente.BackColor = Color.FromArgb(224, 224, 224);
+            btnAceptarCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAceptarCliente.Location = new Point(594, 79);
+            btnAceptarCliente.Name = "btnAceptarCliente";
+            btnAceptarCliente.Size = new Size(116, 31);
+            btnAceptarCliente.TabIndex = 32;
+            btnAceptarCliente.Text = "Aceptar";
+            btnAceptarCliente.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAceptarCliente.UseVisualStyleBackColor = false;
+            btnAceptarCliente.Click += btnAceptarCliente_Click;
+            // 
+            // btnBuscar2
+            // 
+            btnBuscar2.FlatStyle = FlatStyle.Flat;
+            btnBuscar2.Image = (Image)resources.GetObject("btnBuscar2.Image");
+            btnBuscar2.Location = new Point(477, 79);
+            btnBuscar2.Name = "btnBuscar2";
+            btnBuscar2.Size = new Size(35, 29);
+            btnBuscar2.TabIndex = 31;
+            btnBuscar2.UseVisualStyleBackColor = true;
+            btnBuscar2.Click += btnBuscar2_Click;
+            // 
+            // btnNuevoCliente
+            // 
+            btnNuevoCliente.BackColor = Color.FromArgb(224, 224, 224);
+            btnNuevoCliente.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNuevoCliente.Location = new Point(594, 25);
+            btnNuevoCliente.Name = "btnNuevoCliente";
+            btnNuevoCliente.Size = new Size(116, 31);
+            btnNuevoCliente.TabIndex = 30;
+            btnNuevoCliente.Text = "Nuevo Cliente";
+            btnNuevoCliente.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnNuevoCliente.UseVisualStyleBackColor = false;
+            btnNuevoCliente.Click += btnNuevoCliente_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
+            btnBuscar.Location = new Point(479, 27);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(35, 29);
+            btnBuscar.TabIndex = 29;
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(283, 117);
+            label14.Name = "label14";
+            label14.Size = new Size(41, 15);
+            label14.TabIndex = 28;
+            label14.Text = "E-Mail";
+            // 
+            // txtEmail
+            // 
+            txtEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Location = new Point(283, 135);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(195, 29);
+            txtEmail.TabIndex = 27;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(283, 61);
+            label13.Name = "label13";
+            label13.Size = new Size(107, 15);
+            label13.TabIndex = 26;
+            label13.Text = "Nombre Completo";
+            // 
+            // txtNombreCompleto
+            // 
+            txtNombreCompleto.BorderStyle = BorderStyle.FixedSingle;
+            txtNombreCompleto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombreCompleto.Location = new Point(283, 79);
+            txtNombreCompleto.Name = "txtNombreCompleto";
+            txtNombreCompleto.Size = new Size(195, 29);
+            txtNombreCompleto.TabIndex = 25;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(285, 9);
+            label12.Name = "label12";
+            label12.Size = new Size(52, 15);
+            label12.TabIndex = 24;
+            label12.Text = "Telefono";
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.BorderStyle = BorderStyle.FixedSingle;
+            txtTelefono.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefono.Location = new Point(285, 27);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(195, 29);
+            txtTelefono.TabIndex = 23;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
+            // 
             // FrmVentaMetodoPago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(813, 328);
+            ClientSize = new Size(874, 320);
+            Controls.Add(panelCliente);
+            Controls.Add(btnCliente);
             Controls.Add(panelMixto);
             Controls.Add(panelReferencia);
             Controls.Add(panelDescuento);
@@ -550,7 +750,7 @@
             MinimizeBox = false;
             Name = "FrmVentaMetodoPago";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Metedo de Pago";
+            Text = "Método de Pago";
             Load += FrmVentaMetodoPago_Load;
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
@@ -562,6 +762,10 @@
             panelReferencia.PerformLayout();
             panelMixto.ResumeLayout(false);
             panelMixto.PerformLayout();
+            panelCliente.ResumeLayout(false);
+            panelCliente.PerformLayout();
+            gBoxTipoVenta.ResumeLayout(false);
+            gBoxTipoVenta.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -605,5 +809,21 @@
         private TextBox txtMixtoTransferencia;
         private Label label3;
         private TextBox txtMixtoEfectivo;
+        private Button btnCliente;
+        private Panel panelCliente;
+        private Label label13;
+        private TextBox txtNombreCompleto;
+        private Label label12;
+        private TextBox txtTelefono;
+        private Label label14;
+        private TextBox txtEmail;
+        private Button btnNuevoCliente;
+        private Button btnBuscar;
+        private Button btnBuscar2;
+        private Button btnCancelarCliente;
+        private Button btnAceptarCliente;
+        private GroupBox gBoxTipoVenta;
+        private RadioButton rdoCuentaCorriente;
+        private RadioButton rdoVentaDirecta;
     }
 }

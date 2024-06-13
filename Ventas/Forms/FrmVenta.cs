@@ -22,7 +22,7 @@ namespace Ventas.Forms
     {
         public event EventHandler OnChildTextChanged;
         double _TOTAL_PEDIDO = 0;
-        bool _FIRST_SEARCH = true;
+        //bool _FIRST_SEARCH = true;
         private System.Timers.Timer _TIMER;
 
         public FrmVenta()
@@ -270,17 +270,15 @@ namespace Ventas.Forms
             //3ero si no lo encuentro lo busco por descripcion
             if (busqueda == null)
             {
-                BuscarProductoSugerencia(CODE_BAR);
-
-                //   PanelBusquedaMostrar();
+                BuscarProductoSugerencia(CODE_BAR);        
                 return;
             }
 
-            // AgregaProductoGrilla2(string.Empty, 0, CANT, busqueda);
+        
 
             AgregarProductoGrilla(busqueda);
 
-            _FIRST_SEARCH = true;
+        
 
 
         }
@@ -312,14 +310,15 @@ namespace Ventas.Forms
 
         private void BuscarProductoSugerencia(string Busqueda)
         {
-            if (_FIRST_SEARCH) //-->PARA QUE NO CIERRE EL BUSCADOR SI HACE VARIAS BUSQUEDAS
-                ToggleBuscador();
+          
 
             Cursor.Current = Cursors.WaitCursor;
             dgBusqueda.SuspendLayout();
             dgBusqueda.VirtualMode = true;
 
-            dgBusqueda.DataSource = General._LISTA_PRODUCTOS.FindAll(a => a.DESCRIPCION.Contains(Busqueda.ToUpper()) || a.CODIGO_PRODUCTO.Contains(Busqueda.ToUpper()));
+            var result = General._LISTA_PRODUCTOS.FindAll(a => a.DESCRIPCION.Contains(Busqueda.ToUpper()) || a.CODIGO_PRODUCTO.Contains(Busqueda.ToUpper()));
+
+            dgBusqueda.DataSource = result;
 
 
             //VISIBLES
@@ -346,13 +345,27 @@ namespace Ventas.Forms
             dgBusqueda.ReadOnly = true;
             dgBusqueda.ResumeLayout(true);
 
-            _FIRST_SEARCH = false;
+            if (result.Count == 0)
+            {
+                txtInput.Focus();
+                txtInput.SelectAll();
+            }               
+            else
+            {                
+                dgBusqueda.Focus();
+            }
+
+            PanelBusquedaSugerida.Visible = true;
+
+            Cursor.Current = Cursors.Default;
+
         }
 
         private void btnCerrarBuscador_Click(object sender, EventArgs e)
         {
-            _FIRST_SEARCH = true;
-            ToggleBuscador();
+          
+            //ToggleBuscador();
+            PanelBusquedaSugerida.Visible = false;
         }
 
         private void txtInput_KeyDown(object sender, KeyEventArgs e)
@@ -374,10 +387,18 @@ namespace Ventas.Forms
             {
                 Producto pro = dgBusqueda.SelectedRows[0].DataBoundItem as Producto;
                 AgregarProductoGrilla(pro);
-                ToggleBuscador();
-                _FIRST_SEARCH = true;
-
+                PanelBusquedaSugerida.Visible = false;
+                txtInput.Focus(); 
                 e.Handled = true;
+            }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                if (dgBusqueda.CurrentRow != null && dgBusqueda.CurrentRow.Index == 0)
+                {
+                    txtInput.Focus();
+                    txtInput.SelectAll();
+                }
             }
         }
 
@@ -602,8 +623,8 @@ namespace Ventas.Forms
                 int ID_PEDIDO = 0;
 
 
-                string Sql = @"INSERT INTO pedidos(FECHA,TOTAL_PEDIDO,DESCUENTO,TOTAL_FINAL,EFECTIVO,TRANSFERENCIA,DEBITO,QR,OBSERVACIONES)  
-                                        VALUES(@FECHA,@TOTAL_PEDIDO,@DESCUENTO,@TOTAL_FINAL,@EFECTIVO,@TRANSFERENCIA,@DEBITO,@QR,@OBSERVACIONES)";
+                string Sql = @"INSERT INTO pedidos(FECHA,TOTAL_PEDIDO,DESCUENTO,TOTAL_FINAL,EFECTIVO,TRANSFERENCIA,DEBITO,QR,OBSERVACIONES,ID_CLIENTE)  
+                                        VALUES(@FECHA,@TOTAL_PEDIDO,@DESCUENTO,@TOTAL_FINAL,@EFECTIVO,@TRANSFERENCIA,@DEBITO,@QR,@OBSERVACIONES,@ID_CLIENTE)";
 
 
                 OleDbConnection connection = new OleDbConnection(General.GetConnectionString());
@@ -619,6 +640,8 @@ namespace Ventas.Forms
                 oleDbCommand.Parameters.Add(new OleDbParameter("@DEBITO", frm._VALOR_DEBITO));
                 oleDbCommand.Parameters.Add(new OleDbParameter("@QR", frm._VALOR_QR));
                 oleDbCommand.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
+                oleDbCommand.Parameters.Add(new OleDbParameter("@ID_CLIENTE", frm._CLIENTE.ID_CLIENTE ));
+                
                 if (oleDbCommand.ExecuteNonQuery() > 0)
                 {
 
@@ -669,91 +692,135 @@ namespace Ventas.Forms
                             oleDbCommandDet.ExecuteNonQuery();
                         }
 
-
-                        //INGRESO MOVIMIENTO DE CAJA
-                        switch (frm._VALOR_TIPO)
+                        if (frm._TIPO_DE_VENTA == 1) //venta directa
                         {
-                            case 2:  //EFECTIVO                              
-                            case 3:  //TRANSFERENCIA                              
-                            case 4:  //DEBITO
-                            case 5:  //QR
+                            //INGRESO MOVIMIENTO DE CAJA
+                            switch (frm._VALOR_TIPO)
+                            {
+                                case 2:  //EFECTIVO                              
+                                case 3:  //TRANSFERENCIA                              
+                                case 4:  //DEBITO
+                                case 5:  //QR
 
-                                Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
-                                          VALUES (@ID_CAJA_TIPO,Date(),TIME(),@VALOR,@OBSERVACIONES,@ID_PEDIDO,@ID_CAJA_PARENT)";
-
-                                OleDbCommand oleDbCaja = new OleDbCommand(Sql, connection);
-                                oleDbCaja.CommandType = CommandType.Text;
-                                oleDbCaja.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", frm._VALOR_TIPO));
-                                oleDbCaja.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_FINAL));
-                                oleDbCaja.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
-                                oleDbCaja.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
-                                oleDbCaja.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
-
-                                oleDbCaja.ExecuteNonQuery();
-                                break;
-                            case 6: //MIXTO
-
-                                if (frm._VALOR_EFECTIVO > 0)
-                                {
                                     Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
                                           VALUES (@ID_CAJA_TIPO,Date(),TIME(),@VALOR,@OBSERVACIONES,@ID_PEDIDO,@ID_CAJA_PARENT)";
 
-                                    OleDbCommand oleDbEFECTIVO = new OleDbCommand(Sql, connection);
-                                    oleDbEFECTIVO.CommandType = CommandType.Text;
-                                    oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(2)));
-                                    oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_EFECTIVO));
-                                    oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
-                                    oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
-                                    oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
-                                    oleDbEFECTIVO.ExecuteNonQuery();
-                                }
+                                    OleDbCommand oleDbCaja = new OleDbCommand(Sql, connection);
+                                    oleDbCaja.CommandType = CommandType.Text;
+                                    oleDbCaja.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", frm._VALOR_TIPO));
+                                    oleDbCaja.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_FINAL));
+                                    oleDbCaja.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
+                                    oleDbCaja.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
+                                    oleDbCaja.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
 
-                                if (frm._VALOR_TRANSFERENCIA > 0)
-                                {
-                                    Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
+                                    oleDbCaja.ExecuteNonQuery();
+                                    break;
+                                case 6: //MIXTO
+
+                                    if (frm._VALOR_EFECTIVO > 0)
+                                    {
+                                        Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
                                           VALUES (@ID_CAJA_TIPO,Date(),TIME(),@VALOR,@OBSERVACIONES,@ID_PEDIDO,@ID_CAJA_PARENT)";
 
-                                    OleDbCommand oleDbTRANSF = new OleDbCommand(Sql, connection);
-                                    oleDbTRANSF.CommandType = CommandType.Text;
-                                    oleDbTRANSF.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(3)));
-                                    oleDbTRANSF.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_TRANSFERENCIA));
-                                    oleDbTRANSF.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
-                                    oleDbTRANSF.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
-                                    oleDbTRANSF.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
-                                    oleDbTRANSF.ExecuteNonQuery();
-                                }
+                                        OleDbCommand oleDbEFECTIVO = new OleDbCommand(Sql, connection);
+                                        oleDbEFECTIVO.CommandType = CommandType.Text;
+                                        oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(2)));
+                                        oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_EFECTIVO));
+                                        oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
+                                        oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
+                                        oleDbEFECTIVO.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
+                                        oleDbEFECTIVO.ExecuteNonQuery();
+                                    }
 
-                                if (frm._VALOR_DEBITO > 0)
-                                {
-                                    Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
+                                    if (frm._VALOR_TRANSFERENCIA > 0)
+                                    {
+                                        Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
                                           VALUES (@ID_CAJA_TIPO,Date(),TIME(),@VALOR,@OBSERVACIONES,@ID_PEDIDO,@ID_CAJA_PARENT)";
 
-                                    OleDbCommand oleDbDEBITO = new OleDbCommand(Sql, connection);
-                                    oleDbDEBITO.CommandType = CommandType.Text;
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(4)));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_DEBITO));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
-                                    oleDbDEBITO.ExecuteNonQuery();
-                                }
+                                        OleDbCommand oleDbTRANSF = new OleDbCommand(Sql, connection);
+                                        oleDbTRANSF.CommandType = CommandType.Text;
+                                        oleDbTRANSF.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(3)));
+                                        oleDbTRANSF.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_TRANSFERENCIA));
+                                        oleDbTRANSF.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
+                                        oleDbTRANSF.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
+                                        oleDbTRANSF.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
+                                        oleDbTRANSF.ExecuteNonQuery();
+                                    }
 
-                                if (frm._VALOR_QR > 0)
-                                {
-                                    Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
+                                    if (frm._VALOR_DEBITO > 0)
+                                    {
+                                        Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
                                           VALUES (@ID_CAJA_TIPO,Date(),TIME(),@VALOR,@OBSERVACIONES,@ID_PEDIDO,@ID_CAJA_PARENT)";
 
-                                    OleDbCommand oleDbDEBITO = new OleDbCommand(Sql, connection);
-                                    oleDbDEBITO.CommandType = CommandType.Text;
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(5)));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_QR));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
-                                    oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
-                                    oleDbDEBITO.ExecuteNonQuery();
-                                }
-                                break;
+                                        OleDbCommand oleDbDEBITO = new OleDbCommand(Sql, connection);
+                                        oleDbDEBITO.CommandType = CommandType.Text;
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(4)));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_DEBITO));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
+                                        oleDbDEBITO.ExecuteNonQuery();
+                                    }
+
+                                    if (frm._VALOR_QR > 0)
+                                    {
+                                        Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
+                                          VALUES (@ID_CAJA_TIPO,Date(),TIME(),@VALOR,@OBSERVACIONES,@ID_PEDIDO,@ID_CAJA_PARENT)";
+
+                                        OleDbCommand oleDbDEBITO = new OleDbCommand(Sql, connection);
+                                        oleDbDEBITO.CommandType = CommandType.Text;
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_TIPO", Convert.ToInt32(5)));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@VALOR", frm._VALOR_QR));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@OBSERVACIONES", frm._METEDO_OBSERVACION));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_PEDIDO", ID_PEDIDO));
+                                        oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CAJA_PARENT", General._ID_CAJA_ACTUAL));
+                                        oleDbDEBITO.ExecuteNonQuery();
+                                    }
+                                    break;
+                            }
                         }
+                        else  
+                        {
+                            
+                            //GENERO LA CTA CTE
+                            Sql = @"INSERT INTO CUENTA_CORRIENTE (ID_CLIENTE,ID_COMPROBANTE,FECHA,ID_CUENTA_CORRIENTE_TIPO,DEBE,HABER) 
+                                                         VALUES  (@ID_CLIENTE,@ID_COMPROBANTE,@FECHA,@ID_CUENTA_CORRIENTE_TIPO,@DEBE,@HABER)";
+
+                            OleDbCommand oleDbDEBITO = new OleDbCommand(Sql, connection);
+                            oleDbDEBITO.CommandType = CommandType.Text;
+                            oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CLIENTE", frm._CLIENTE.ID_CLIENTE));
+                            oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_COMPROBANTE", ID_PEDIDO));
+                            oleDbDEBITO.Parameters.Add(new OleDbParameter("@FECHA", Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"))));
+                            oleDbDEBITO.Parameters.Add(new OleDbParameter("@ID_CUENTA_CORRIENTE_TIPO", Convert.ToInt32(1) )); //PEDIDO
+                            oleDbDEBITO.Parameters.Add(new OleDbParameter("@DEBE", frm._VALOR_FINAL));
+                            oleDbDEBITO.Parameters.Add(new OleDbParameter("@HABER", Convert.ToDouble(0)));
+                            oleDbDEBITO.ExecuteNonQuery();
+
+                            //CALCULO SALDO DEL CLIENTE
+                            double SALDO_ACTUAL = 0;
+                            
+                            Sql = "SELECT ROUND(SUM(ABS(HABER)) -  SUM(ABS(DEBE)),2)  as SALDO FROM CUENTA_CORRIENTE WHERE ID_CLIENTE = " + frm._CLIENTE.ID_CLIENTE;
+                            OleDbCommand Cmd = new OleDbCommand(Sql, connection);
+                            OleDbDataReader  Dr = Cmd.ExecuteReader();
+                            if (Dr.HasRows)
+                            {
+                                Dr.Read();
+                                SALDO_ACTUAL = Convert.ToDouble(Dr["SALDO"]);
+                                Dr.Close();
+                            }
+
+                            //ACTUALIZO SALDO DEL CLIENTE
+                            Sql = "UPDATE CLIENTES SET SALDO = @SALDO_ACTUAL WHERE ID_CLIENTE = @ID_CLIENTE";
+                            Cmd = new OleDbCommand(Sql, connection);
+                            Cmd.CommandType = CommandType.Text;
+                            Cmd.Parameters.Add(new OleDbParameter("@SALDO_ACTUAL", SALDO_ACTUAL));
+                            Cmd.Parameters.Add(new OleDbParameter("@ID_CLIENTE", frm._CLIENTE.ID_CLIENTE));
+                            Cmd.ExecuteNonQuery();
+                            
+
+                        }
+
+
 
 
 

@@ -30,6 +30,11 @@ namespace Ventas
             int startY = 10;
             int offset = 120;
 
+            
+            double TOTAL_PEDIDO = 0;
+            int     DESCUENTO = 0;
+            double TOTAL_FINAL = 0;            
+
 
 
             string Sql = null;
@@ -37,7 +42,7 @@ namespace Ventas
             Cnn = new OleDbConnection(General.GetConnectionString());
             Cnn.Open();
 
-
+            /*
             Sql = @"SELECT  PEDIDOS.FECHA, 
                             PEDIDOS.TOTAL_FINAL, 
                             PEDIDOS.ID_PEDIDO AS PEDIDONRO, 
@@ -47,7 +52,27 @@ namespace Ventas
                             PEDIDOS_DETALLE.SUBTOTAL
                     FROM (PEDIDOS INNER JOIN PEDIDOS_DETALLE ON PEDIDOS.ID_PEDIDO = PEDIDOS_DETALLE.ID_PEDIDO) 
                                 INNER JOIN PRODUCTOS ON PEDIDOS_DETALLE.ID_PRODUCTO = PRODUCTOS.ID_PRODUCTO
-                    WHERE PEDIDOS.ID_PEDIDO = " + ID_PEDIDO.ToString();
+                    WHERE PEDIDOS.ID_PEDIDO = " + ID_PEDIDO.ToString();*/
+
+
+            Sql = @"SELECT  PEDIDOS.FECHA, 
+                            PEDIDOS.ID_PEDIDO AS PEDIDONRO, 
+                            PRODUCTOS.DESCRIPCION, 
+                            PEDIDOS_DETALLE.CANTIDAD, 
+                            PEDIDOS_DETALLE.PRECIO, 
+                            PEDIDOS_DETALLE.SUBTOTAL, 
+                            CLIENTES.DESCRIPCION AS CLIENTE, 
+                            PEDIDOS.TOTAL_PEDIDO, 
+                            PEDIDOS.DESCUENTO, 
+                            PEDIDOS.TOTAL_FINAL, 
+                            PEDIDOS.OBSERVACIONES
+                    FROM ((PEDIDOS INNER JOIN PEDIDOS_DETALLE 
+                                ON PEDIDOS.ID_PEDIDO = PEDIDOS_DETALLE.ID_PEDIDO) 
+                            INNER JOIN PRODUCTOS 
+                                ON PEDIDOS_DETALLE.ID_PRODUCTO = PRODUCTOS.ID_PRODUCTO) 
+                            INNER JOIN CLIENTES ON PEDIDOS.ID_CLIENTE = CLIENTES.ID_CLIENTE
+                    WHERE PEDIDOS.ID_PEDIDO=" + ID_PEDIDO.ToString();
+
 
 
             Cmd = new OleDbCommand(Sql, Cnn);
@@ -62,7 +87,7 @@ namespace Ventas
 
                 int fila = 0;
                 double total = 0;
-                double seña = 0;
+                
 
                 while (Dr.Read())
                 {
@@ -87,7 +112,7 @@ namespace Ventas
 
 
                         offset = offset + (int)fontHeight; //make the spacing consistent
-                        graphic.DrawString(Convert.ToString("Consumidor Final"), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
+                        graphic.DrawString(Convert.ToString(Dr["CLIENTE"]), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
 
                         //offset = offset + (int)fontHeight; //make the spacing consistent
                         //graphic.DrawString(Convert.ToString(Dr["DOMICILIO"]), font, new SolidBrush(Color.Black), startX, startY + offset);
@@ -109,8 +134,10 @@ namespace Ventas
                         offset = offset + (int)fontHeight; //make the spacing consistent
                         graphic.DrawString("=========================", font, new SolidBrush(Color.Black), startX, startY + offset);
 
+                        TOTAL_PEDIDO = Convert.ToDouble(Dr["TOTAL_PEDIDO"]);
+                        DESCUENTO = Convert.ToInt32(Dr["DESCUENTO"]);
+                        TOTAL_FINAL = Convert.ToDouble(Dr["TOTAL_FINAL"]);                        
 
-                       
 
                     }
 
@@ -130,9 +157,26 @@ namespace Ventas
                 graphic.DrawString("=========================", font, new SolidBrush(Color.Black), startX, startY + offset);
 
 
+                if (DESCUENTO > 0)
+                {
+                    offset = offset + (int)fontHeight; //make the spacing consistent
+                    graphic.DrawString(String.Format("{0,-8} {1,16}", "TOTAL", String.Format("{0:c}", TOTAL_PEDIDO)), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
 
-                offset = offset + (int)fontHeight; //make the spacing consistent
-                graphic.DrawString(String.Format("{0,-8} {1,16}", "TOTAL", String.Format("{0:c}", total)), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
+                    offset = offset + (int)fontHeight; //make the spacing consistent
+                    graphic.DrawString(String.Format("{0,-8} {1,16}", "DESC", Convert.ToString( DESCUENTO*-1) + "%"), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
+
+
+                    offset = offset + (int)fontHeight; //make the spacing consistent
+                    graphic.DrawString(String.Format("{0,-8} {1,16}", "FINAL", String.Format("{0:c}", TOTAL_FINAL)), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
+
+                }
+                else 
+                {
+                    offset = offset + (int)fontHeight; //make the spacing consistent
+                    graphic.DrawString(String.Format("{0,-8} {1,16}", "TOTAL", String.Format("{0:c}", total)), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
+                }
+
+              
 
 
                 offset = offset + (int)fontHeight; //make the spacing consistent

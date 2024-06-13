@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Mysqlx.Crud.Order.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Ventas
 {
@@ -56,9 +58,34 @@ namespace Ventas
         public int CANTIDAD { get; set; }
         public double PRECIO { get; set; }
         public double SUBTOTAL { get; set; }
-
     }
 
+
+    public class Cliente
+    {
+        public int ID_CLIENTE { get; set; }        
+        public string DESCRIPCION { get; set; }
+        public string TELEFONO { get; set; }
+        public string DIRECCION { get; set; }
+        
+        public string EMAIL { get; set; }
+        public double SALDO { get; set; }
+        public bool SISTEMA { get; set; }
+
+
+        public Cliente()
+        {
+            this.ID_CLIENTE = 0;
+            this.DESCRIPCION = string.Empty;
+            this.DIRECCION   = string.Empty; 
+            this.TELEFONO = string.Empty;
+            this.EMAIL = string.Empty;
+            this.SALDO = 0;
+            this.SISTEMA = false;
+
+        }
+    }
+      
 
 }
 

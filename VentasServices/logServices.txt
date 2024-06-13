@@ -1,0 +1,363 @@
+[2024-03-09 21:39:24] ---------Ventas Services Conectado!
+[2024-03-09 21:39:26] Ventas Services v3.1
+[2024-03-09 21:39:26] Pedidos, sin novedadades!
+[2024-03-11 09:32:06] ---------Ventas Services Conectado!
+[2024-03-11 09:32:08] Ventas Services v3.1
+[2024-03-11 09:32:24] Pedidos, sin novedadades!
+[2024-03-11 09:42:27] Pedidos, sin novedadades!
+[2024-03-11 09:52:28] Pedidos, sin novedadades!
+[2024-03-11 10:02:29] Pedidos, sin novedadades!
+[2024-03-11 10:12:31] Pedidos, sin novedadades!
+[2024-03-11 10:22:32] Pedidos, sin novedadades!
+[2024-03-11 10:32:33] Pedidos, sin novedadades!
+[2024-03-11 10:53:03] Pedidos, sin novedadades!
+[2024-03-11 11:03:04] Pedidos, sin novedadades!
+[2024-03-11 11:13:05] Pedidos, sin novedadades!
+[2024-03-11 11:23:07] Pedidos, sin novedadades!
+[2024-03-11 12:57:11] Pedidos, sin novedadades!
+[2024-03-11 13:07:13] Pedidos, sin novedadades!
+[2024-03-11 13:17:14] Pedidos, sin novedadades!
+[2024-03-11 13:27:16] Pedidos, sin novedadades!
+[2024-03-11 14:40:34] Pedidos, sin novedadades!
+[2024-03-11 15:01:07] Pedidos, sin novedadades!
+[2024-03-11 15:53:10] Pedidos, sin novedadades!
+[2024-03-11 16:03:12] Pedidos, sin novedadades!
+[2024-03-11 16:13:13] Pedidos, sin novedadades!
+[2024-03-11 16:33:31] Pedidos, sin novedadades!
+[2024-03-11 16:43:32] Pedidos, sin novedadades!
+[2024-03-11 16:53:33] Pedidos, sin novedadades!
+[2024-03-11 17:03:35] Pedidos, sin novedadades!
+[2024-03-11 17:13:36] Pedidos, sin novedadades!
+[2024-03-11 17:33:53] Pedidos, sin novedadades!
+[2024-03-11 18:25:11] Pedidos, sin novedadades!
+[2024-03-11 18:35:13] Pedidos, sin novedadades!
+[2024-03-11 18:45:14] Pedidos, sin novedadades!
+[2024-03-11 18:55:15] Pedidos, sin novedadades!
+[2024-03-12 10:04:56] Pedidos, sin novedadades!
+[2024-03-12 10:14:57] Pedidos, sin novedadades!
+[2024-03-12 10:35:14] Pedidos, sin novedadades!
+[2024-03-12 11:26:47] Pedidos, sin novedadades!
+[2024-03-12 11:36:48] Pedidos, sin novedadades!
+[2024-03-12 11:46:50] Pedidos, sin novedadades!
+[2024-03-12 13:00:12] Pedidos, sin novedadades!
+[2024-03-12 13:10:14] Pedidos, sin novedadades!
+[2024-03-12 13:20:15] Pedidos, sin novedadades!
+[2024-03-12 13:30:16] Pedidos, sin novedadades!
+[2024-03-12 13:50:34] Pedidos, sin novedadades!
+[2024-03-12 14:10:54] Pedidos, sin novedadades!
+[2024-03-12 14:20:56] Pedidos, sin novedadades!
+[2024-03-12 14:41:28] Pedidos, sin novedadades!
+[2024-03-12 14:51:29] Pedidos, sin novedadades!
+[2024-03-12 15:11:48] Pedidos, sin novedadades!
+[2024-03-12 15:53:29] Pedidos, sin novedadades!
+[2024-03-12 16:03:30] Pedidos, sin novedadades!
+[2024-03-12 16:23:47] Pedidos, sin novedadades!
+[2024-03-12 16:34:04] Pedidos, sin novedadades!
+[2024-03-12 16:44:20] Pedidos, sin novedadades!
+[2024-03-12 17:36:08] Pedidos, sin novedadades!
+[2024-03-12 17:56:25] Pedidos, sin novedadades!
+[2024-03-12 18:06:26] Pedidos, sin novedadades!
+[2024-03-12 18:16:27] Pedidos, sin novedadades!
+[2024-03-12 18:57:43] Pedidos, sin novedadades!
+[2024-03-13 09:52:45] Pedidos, sin novedadades!
+[2024-03-13 10:23:31] Pedidos, sin novedadades!
+[2024-03-13 11:04:31] Pedidos, sin novedadades!
+[2024-03-13 11:46:02] Pedidos, sin novedadades!
+[2024-03-13 13:19:21] Pedidos, sin novedadades!
+[2024-03-13 13:29:23] Pedidos, sin novedadades!
+[2024-03-13 14:21:05] Pedidos, sin novedadades!
+[2024-03-13 14:31:06] Pedidos, sin novedadades!
+[2024-03-13 15:01:57] Pedidos, sin novedadades!
+[2024-03-13 15:12:00] Pedidos, sin novedadades!
+[2024-03-13 15:12:23] TraerProductosCambios():Unable to connect to any of the specified MySQL hosts.
+[2024-03-13 16:04:18] Pedidos, sin novedadades!
+[2024-03-13 16:14:21] Pedidos, sin novedadades!
+[2024-03-13 16:24:22] Pedidos, sin novedadades!
+[2024-03-13 16:44:43] Pedidos, sin novedadades!
+[2024-03-13 16:54:44] Pedidos, sin novedadades!
+[2024-03-13 17:15:03] Pedidos, sin novedadades!
+[2024-03-13 17:45:37] Pedidos, sin novedadades!
+[2024-03-13 17:55:39] Pedidos, sin novedadades!
+[2024-03-13 18:26:54] Pedidos, sin novedadades!
+[2024-03-13 18:36:55] Pedidos, sin novedadades!
+[2024-03-13 18:46:56] Pedidos, sin novedadades!
+[2024-03-13 18:56:57] Pedidos, sin novedadades!
+[2024-03-14 09:47:15] Pedidos, sin novedadades!
+[2024-03-14 09:57:17] Pedidos, sin novedadades!
+[2024-03-14 10:17:49] Pedidos, sin novedadades!
+[2024-03-14 10:27:50] Pedidos, sin novedadades!
+[2024-03-14 10:37:57] Pedidos, sin novedadades!
+[2024-03-14 10:58:14] Pedidos, sin novedadades!
+[2024-03-14 11:08:15] Pedidos, sin novedadades!
+[2024-03-14 11:18:18] Pedidos, sin novedadades!
+[2024-03-14 11:48:51] Pedidos, sin novedadades!
+[2024-03-14 11:58:52] Pedidos, sin novedadades!
+[2024-03-14 12:08:53] Pedidos, sin novedadades!
+[2024-03-14 12:29:26] Pedidos, sin novedadades!
+[2024-03-14 13:10:44] Pedidos, sin novedadades!
+[2024-03-14 13:20:45] Pedidos, sin novedadades!
+[2024-03-14 13:30:46] Pedidos, sin novedadades!
+[2024-03-14 14:12:07] Pedidos, sin novedadades!
+[2024-03-14 15:03:34] Pedidos, sin novedadades!
+[2024-03-14 15:34:51] Pedidos, sin novedadades!
+[2024-03-14 15:55:27] Pedidos, sin novedadades!
+[2024-03-14 16:05:28] Pedidos, sin novedadades!
+[2024-03-14 16:47:02] Pedidos, sin novedadades!
+[2024-03-14 17:40:47] Pedidos, sin novedadades!
+[2024-03-15 09:45:12] Pedidos, sin novedadades!
+[2024-03-15 10:05:45] Pedidos, sin novedadades!
+[2024-03-15 12:23:20] Producto Actualizado:203897
+[2024-03-15 12:23:20] Producto Actualizado:203778
+[2024-03-15 12:23:20] Producto Actualizado:203783
+[2024-03-15 12:23:20] Producto Actualizado:204278
+[2024-03-15 12:23:20] Producto Actualizado:203503
+[2024-03-15 12:23:20] Producto Actualizado:203503
+[2024-03-15 12:23:20] Producto Actualizado:203503
+[2024-03-15 12:23:21] Producto Actualizado:203503
+[2024-03-15 12:33:37] Producto Actualizado:203599
+[2024-03-15 12:33:37] Producto Actualizado:203504
+[2024-03-15 12:33:37] Producto Actualizado:203507
+[2024-03-15 12:33:37] Producto Borrado:204279
+[2024-03-15 12:33:37] Producto Actualizado:203505
+[2024-03-15 12:33:38] Producto Actualizado:203506
+[2024-03-15 12:33:38] Producto Actualizado:203898
+[2024-03-15 12:33:38] Producto Borrado:204280
+[2024-03-15 12:33:38] Producto Actualizado:203818
+[2024-03-15 12:33:38] Producto Actualizado:204849
+[2024-03-15 12:33:38] Producto Actualizado:204850
+[2024-03-15 12:33:38] Producto Actualizado:204950
+[2024-03-15 12:33:38] Producto Actualizado:204853
+[2024-03-15 12:33:38] Producto Actualizado:202826
+[2024-03-15 12:44:24] Producto Actualizado:202828
+[2024-03-15 12:44:24] Producto Actualizado:202825
+[2024-03-15 12:44:24] Producto Actualizado:202827
+[2024-03-15 13:05:02] Pedidos, sin novedadades!
+[2024-03-15 13:25:21] Pedidos, sin novedadades!
+[2024-03-15 13:35:23] Pedidos, sin novedadades!
+[2024-03-15 15:09:58] Pedidos, sin novedadades!
+[2024-03-15 15:30:33] Pedidos, sin novedadades!
+[2024-03-15 15:50:50] Pedidos, sin novedadades!
+[2024-03-15 16:45:39] Pedidos, sin novedadades!
+[2024-03-15 16:55:40] Pedidos, sin novedadades!
+[2024-03-15 17:58:09] Pedidos, sin novedadades!
+[2024-03-15 18:39:44] Pedidos, sin novedadades!
+[2024-03-15 18:49:45] Pedidos, sin novedadades!
+[2024-03-16 09:53:58] Pedidos, sin novedadades!
+[2024-03-16 10:03:59] Pedidos, sin novedadades!
+[2024-03-16 10:55:48] Pedidos, sin novedadades!
+[2024-03-16 11:05:50] Pedidos, sin novedadades!
+[2024-03-16 11:15:51] Pedidos, sin novedadades!
+[2024-03-16 11:25:52] Pedidos, sin novedadades!
+[2024-03-16 11:36:10] Pedidos, sin novedadades!
+[2024-03-16 13:31:47] Pedidos, sin novedadades!
+[2024-03-16 14:16:02] Producto Actualizado:202901
+[2024-03-16 14:26:35] Producto Agregado:204958
+[2024-03-16 15:08:04] Pedidos, sin novedadades!
+[2024-03-16 15:38:44] Pedidos, sin novedadades!
+[2024-03-16 15:48:45] Pedidos, sin novedadades!
+[2024-03-16 15:58:46] Pedidos, sin novedadades!
+[2024-03-16 16:19:08] Pedidos, sin novedadades!
+[2024-03-16 17:22:04] Pedidos, sin novedadades!
+[2024-03-16 18:04:00] Pedidos, sin novedadades!
+[2024-03-16 18:04:01] Producto Actualizado:203437
+[2024-03-16 18:24:54] Producto Agregado:204959
+[2024-03-16 18:24:54] Producto Agregado:204960
+[2024-03-16 18:35:32] Producto Actualizado:204960
+[2024-03-16 18:45:49] Pedidos, sin novedadades!
+[2024-03-16 18:55:50] Pedidos, sin novedadades!
+[2024-03-18 09:46:35] Pedidos, sin novedadades!
+[2024-03-18 11:09:07] Pedidos, sin novedadades!
+[2024-03-18 11:19:09] Pedidos, sin novedadades!
+[2024-03-18 12:00:01] Pedidos, sin novedadades!
+[2024-03-18 12:52:23] Producto Actualizado:203490
+[2024-03-18 12:52:23] Producto Actualizado:203490
+[2024-03-18 12:52:23] Producto Actualizado:203490
+[2024-03-18 13:13:41] Pedidos, sin novedadades!
+[2024-03-18 13:23:42] Pedidos, sin novedadades!
+[2024-03-18 13:33:44] Pedidos, sin novedadades!
+[2024-03-18 13:54:38] Producto Agregado:204961
+[2024-03-18 13:54:38] Producto Actualizado:204070
+[2024-03-18 13:54:38] Producto Actualizado:203578
+[2024-03-18 14:16:20] Pedidos, sin novedadades!
+[2024-03-18 14:47:33] Pedidos, sin novedadades!
+[2024-03-18 15:29:31] Pedidos, sin novedadades!
+[2024-03-18 17:36:46] Pedidos, sin novedadades!
+[2024-03-18 18:07:26] Pedidos, sin novedadades!
+[2024-03-18 18:28:05] Pedidos, sin novedadades!
+[2024-03-18 18:59:21] Pedidos, sin novedadades!
+[2024-03-18 19:09:23] Pedidos, sin novedadades!
+[2024-03-18 19:19:27] Pedidos, sin novedadades!
+[2024-03-18 19:29:29] Pedidos, sin novedadades!
+[2024-03-18 19:39:31] Pedidos, sin novedadades!
+[2024-03-18 19:49:34] Pedidos, sin novedadades!
+[2024-03-18 19:59:36] Pedidos, sin novedadades!
+[2024-03-18 20:09:38] Pedidos, sin novedadades!
+[2024-03-18 20:19:42] Pedidos, sin novedadades!
+[2024-03-18 20:29:45] Pedidos, sin novedadades!
+[2024-03-18 20:39:48] Pedidos, sin novedadades!
+[2024-03-18 20:49:49] Pedidos, sin novedadades!
+[2024-03-18 20:59:52] Pedidos, sin novedadades!
+[2024-03-18 21:09:54] Pedidos, sin novedadades!
+[2024-03-18 21:19:57] Pedidos, sin novedadades!
+[2024-03-18 21:29:58] Pedidos, sin novedadades!
+[2024-03-18 21:40:01] Pedidos, sin novedadades!
+[2024-03-19 12:16:14] Pedidos, sin novedadades!
+[2024-03-19 12:36:33] Pedidos, sin novedadades!
+[2024-03-19 12:57:21] Pedidos, sin novedadades!
+[2024-03-19 13:07:23] Pedidos, sin novedadades!
+[2024-03-19 13:17:24] Pedidos, sin novedadades!
+[2024-03-19 13:27:26] Pedidos, sin novedadades!
+[2024-03-19 14:11:35] SubirPedido():Unable to connect to any of the specified MySQL hosts.
+[2024-03-19 14:43:53] Pedidos, sin novedadades!
+[2024-03-19 14:53:54] Pedidos, sin novedadades!
+[2024-03-19 15:36:25] Pedidos, sin novedadades!
+[2024-03-19 16:18:17] Pedidos, sin novedadades!
+[2024-03-19 16:28:19] Pedidos, sin novedadades!
+[2024-03-19 16:38:43] Pedidos, sin novedadades!
+[2024-03-19 16:59:57] Producto Actualizado:204665
+[2024-03-19 17:20:49] Pedidos, sin novedadades!
+[2024-03-19 17:30:50] Pedidos, sin novedadades!
+[2024-03-19 17:51:14] Pedidos, sin novedadades!
+[2024-03-19 18:32:25] Pedidos, sin novedadades!
+[2024-03-19 18:52:43] Pedidos, sin novedadades!
+[2024-03-20 09:46:48] Pedidos, sin novedadades!
+[2024-03-20 10:07:07] Pedidos, sin novedadades!
+[2024-03-20 10:17:08] Pedidos, sin novedadades!
+[2024-03-20 10:27:09] Pedidos, sin novedadades!
+[2024-03-20 10:37:10] Pedidos, sin novedadades!
+[2024-03-20 10:47:11] Pedidos, sin novedadades!
+[2024-03-20 10:57:12] Pedidos, sin novedadades!
+[2024-03-20 11:07:13] Pedidos, sin novedadades!
+[2024-03-20 11:17:14] Pedidos, sin novedadades!
+[2024-03-20 11:27:15] Pedidos, sin novedadades!
+[2024-03-20 11:37:16] Pedidos, sin novedadades!
+[2024-03-20 11:47:18] Pedidos, sin novedadades!
+[2024-03-20 12:07:36] Pedidos, sin novedadades!
+[2024-03-20 12:17:37] Pedidos, sin novedadades!
+[2024-03-20 12:48:29] Pedidos, sin novedadades!
+[2024-03-20 13:08:48] Pedidos, sin novedadades!
+[2024-03-20 13:18:49] Pedidos, sin novedadades!
+[2024-03-20 13:28:50] Pedidos, sin novedadades!
+[2024-03-20 13:49:09] Pedidos, sin novedadades!
+[2024-03-20 13:59:12] Pedidos, sin novedadades!
+[2024-03-20 14:09:17] Pedidos, sin novedadades!
+[2024-03-20 14:29:35] Pedidos, sin novedadades!
+[2024-03-20 14:39:36] Pedidos, sin novedadades!
+[2024-03-20 14:49:37] Pedidos, sin novedadades!
+[2024-03-20 14:59:39] Pedidos, sin novedadades!
+[2024-03-20 15:09:41] Pedidos, sin novedadades!
+[2024-03-20 15:30:00] Pedidos, sin novedadades!
+[2024-03-20 15:50:35] Pedidos, sin novedadades!
+[2024-03-20 16:00:36] Pedidos, sin novedadades!
+[2024-03-20 16:10:39] Pedidos, sin novedadades!
+[2024-03-20 16:41:31] Pedidos, sin novedadades!
+[2024-03-20 16:51:32] Pedidos, sin novedadades!
+[2024-03-20 17:01:33] Pedidos, sin novedadades!
+[2024-03-20 17:21:52] Pedidos, sin novedadades!
+[2024-03-20 17:31:53] Pedidos, sin novedadades!
+[2024-03-21 09:42:55] Pedidos, sin novedadades!
+[2024-03-21 10:13:52] Pedidos, sin novedadades!
+[2024-03-21 11:17:37] Pedidos, sin novedadades!
+[2024-03-21 12:20:27] Pedidos, sin novedadades!
+[2024-03-21 13:22:24] Pedidos, sin novedadades!
+[2024-03-21 13:32:25] Pedidos, sin novedadades!
+[2024-03-21 14:45:54] Pedidos, sin novedadades!
+[2024-03-21 17:33:28] Pedidos, sin novedadades!
+[2024-03-21 17:53:46] Pedidos, sin novedadades!
+[2024-03-21 18:46:18] Pedidos, sin novedadades!
+[2024-03-22 09:39:50] Pedidos, sin novedadades!
+[2024-03-22 10:00:10] Pedidos, sin novedadades!
+[2024-03-22 10:10:27] Pedidos, sin novedadades!
+[2024-03-22 10:41:20] Pedidos, sin novedadades!
+[2024-03-22 11:23:03] Pedidos, sin novedadades!
+[2024-03-22 12:25:39] Pedidos, sin novedadades!
+[2024-03-22 13:08:12] Pedidos, sin novedadades!
+[2024-03-22 13:18:13] Pedidos, sin novedadades!
+[2024-03-22 15:35:26] Pedidos, sin novedadades!
+[2024-03-22 16:59:16] Pedidos, sin novedadades!
+[2024-03-22 17:09:17] Pedidos, sin novedadades!
+[2024-03-22 17:29:53] Pedidos, sin novedadades!
+[2024-03-22 17:50:29] Pedidos, sin novedadades!
+[2024-03-23 09:33:28] AfectaStock():Fatal error encountered during command execution.
+[2024-03-23 10:24:40] Pedidos, sin novedadades!
+[2024-03-23 10:55:16] Pedidos, sin novedadades!
+[2024-03-23 13:21:09] Pedidos, sin novedadades!
+[2024-03-23 13:41:28] Pedidos, sin novedadades!
+[2024-03-23 14:13:13] Pedidos, sin novedadades!
+[2024-03-23 14:44:55] Pedidos, sin novedadades!
+[2024-03-23 15:05:14] Pedidos, sin novedadades!
+[2024-03-23 15:15:15] Pedidos, sin novedadades!
+[2024-03-23 15:35:51] Pedidos, sin novedadades!
+[2024-03-23 16:06:59] Pedidos, sin novedadades!
+[2024-03-23 16:48:13] Pedidos, sin novedadades!
+[2024-03-23 16:58:14] Pedidos, sin novedadades!
+[2024-03-23 17:29:07] Pedidos, sin novedadades!
+[2024-03-23 17:39:08] Pedidos, sin novedadades!
+[2024-03-23 17:49:09] Pedidos, sin novedadades!
+[2024-03-23 17:59:18] Pedidos, sin novedadades!
+[2024-03-23 18:51:03] Pedidos, sin novedadades!
+[2024-03-25 10:48:41] Pedidos, sin novedadades!
+[2024-03-25 12:12:05] Pedidos, sin novedadades!
+[2024-03-25 12:55:19] AfectaStock():Fatal error encountered during command execution.
+[2024-03-25 13:05:20] Pedidos, sin novedadades!
+[2024-03-25 13:15:23] Pedidos, sin novedadades!
+[2024-03-25 13:25:24] Pedidos, sin novedadades!
+[2024-03-25 13:35:25] Pedidos, sin novedadades!
+[2024-03-25 14:27:53] Pedidos, sin novedadades!
+[2024-03-25 14:37:54] Pedidos, sin novedadades!
+[2024-03-25 14:58:13] Pedidos, sin novedadades!
+[2024-03-25 15:40:05] Pedidos, sin novedadades!
+[2024-03-25 16:00:26] Pedidos, sin novedadades!
+[2024-03-25 16:10:27] Pedidos, sin novedadades!
+[2024-03-25 16:20:29] Pedidos, sin novedadades!
+[2024-03-25 16:30:31] Pedidos, sin novedadades!
+[2024-03-25 16:40:32] Pedidos, sin novedadades!
+[2024-03-25 17:21:30] Pedidos, sin novedadades!
+[2024-03-25 17:31:32] Pedidos, sin novedadades!
+[2024-03-25 17:41:33] Pedidos, sin novedadades!
+[2024-03-25 17:51:34] Pedidos, sin novedadades!
+[2024-03-25 17:51:35] Producto Agregado:204962
+[2024-03-25 17:51:35] Producto Agregado:204963
+[2024-03-25 17:51:35] Producto Actualizado:204347
+[2024-03-25 18:12:11] Pedidos, sin novedadades!
+[2024-03-25 18:32:49] Pedidos, sin novedadades!
+[2024-03-25 18:42:51] Pedidos, sin novedadades!
+[2024-03-25 18:52:52] Pedidos, sin novedadades!
+[2024-03-26 09:51:44] Pedidos, sin novedadades!
+[2024-03-26 10:01:45] Pedidos, sin novedadades!
+[2024-03-26 10:22:04] Pedidos, sin novedadades!
+[2024-03-26 10:53:01] Pedidos, sin novedadades!
+[2024-03-26 11:14:15] Pedidos, sin novedadades!
+[2024-03-26 11:24:16] Pedidos, sin novedadades!
+[2024-03-26 12:47:59] Pedidos, sin novedadades!
+[2024-03-26 12:58:00] Pedidos, sin novedadades!
+[2024-03-26 13:18:55] Pedidos, sin novedadades!
+[2024-03-26 13:28:56] Pedidos, sin novedadades!
+[2024-03-26 15:25:03] Pedidos, sin novedadades!
+[2024-03-26 15:35:04] Pedidos, sin novedadades!
+[2024-03-26 15:45:05] Pedidos, sin novedadades!
+[2024-03-26 16:05:25] Pedidos, sin novedadades!
+[2024-03-26 17:07:37] Pedidos, sin novedadades!
+[2024-03-26 17:28:01] Pedidos, sin novedadades!
+[2024-03-26 18:08:57] Pedidos, sin novedadades!
+[2024-03-27 09:43:27] Pedidos, sin novedadades!
+[2024-03-27 10:45:59] Pedidos, sin novedadades!
+[2024-03-27 11:06:19] Pedidos, sin novedadades!
+[2024-03-27 11:16:20] Pedidos, sin novedadades!
+[2024-03-27 11:59:23] Pedidos, sin novedadades!
+[2024-03-27 12:30:43] Pedidos, sin novedadades!
+[2024-03-27 13:13:00] Pedidos, sin novedadades!
+[2024-03-27 13:23:03] Pedidos, sin novedadades!
+[2024-03-27 14:15:30] Pedidos, sin novedadades!
+[2024-03-27 14:25:33] Pedidos, sin novedadades!
+[2024-03-27 14:35:34] Pedidos, sin novedadades!
+[2024-03-27 15:06:36] Pedidos, sin novedadades!
+[2024-03-27 15:27:17] Pedidos, sin novedadades!
+[2024-03-27 15:58:18] Pedidos, sin novedadades!
+[2024-03-27 16:08:20] Pedidos, sin novedadades!
+[2024-03-27 16:18:21] Pedidos, sin novedadades!
+[2024-03-27 16:49:51] Pedidos, sin novedadades!
+[2024-03-29 16:37:55] ---------Ventas Services Conectado!
+[2024-03-29 16:37:57] Ventas Services v3.1
+[2024-03-29 16:53:09] AfectaStock():Fatal error encountered during command execution.
+[2024-03-29 17:13:47] Pedidos, sin novedadades!

@@ -116,3 +116,7 @@ F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\refint\Ventas.dll
 F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\Ventas.pdb
 F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\Ventas.genruntimeconfig.cache
 F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\ref\Ventas.dll
+F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\Ventas.Forms.FrmVentaConsultasCliente.resources
+F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\Ventas.Forms.FrmCtaCteDeudores.resources
+F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\Ventas.Forms.FrmCtaCte.resources
+F:\VS2022\TuMomentoPtoVta\Ventas\obj\Debug\net6.0-windows7.0\Ventas.Forms.FrmCtaCtePago.resources

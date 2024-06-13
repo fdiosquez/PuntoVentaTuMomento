@@ -60,5 +60,13 @@ namespace Ventas.Forms
             }
 
         }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                btnAceptar.Focus();
+            }
+        }
     }
 }

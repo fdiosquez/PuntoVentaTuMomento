@@ -13,7 +13,7 @@ namespace Ventas.Forms
 {
     public partial class FrmCajaNuevo : Form
     {
-        int _TIPO=0;
+        int _TIPO = 0;
 
         public FrmCajaNuevo()
         {
@@ -43,8 +43,8 @@ namespace Ventas.Forms
             }
 
             string DESCRIPCION = "";
-            if (txtDescripcion.Text.Length == 0)            
-                DESCRIPCION = "EFECTIVO";            
+            if (txtDescripcion.Text.Length == 0)
+                DESCRIPCION = "EFECTIVO";
             else
                 DESCRIPCION = txtDescripcion.Text.Trim();
 
@@ -57,8 +57,8 @@ namespace Ventas.Forms
             {
                 num1 *= -1.0;
                 _TIPO = 8;
-            }            
-                
+            }
+
 
             try
             {
@@ -68,7 +68,7 @@ namespace Ventas.Forms
                 connection.Open();
 
                 int CERO = 0;
-               
+
 
                 //INGRESO MOVIMIENTO DE CAJA
                 string Sql = @"INSERT INTO CAJA (ID_CAJA_TIPO,FECHA,HORA,VALOR,OBSERVACIONES,ID_PEDIDO,ID_CAJA_PARENT) 
@@ -88,16 +88,16 @@ namespace Ventas.Forms
                 if (_TIPO == 1) //si es tipo apertura recupero el ID y lo persisto en memoria
                 {
 
-                    Sql = @"SELECT MAX(ID_CAJA) AS ID FROM CAJA";                    
+                    Sql = @"SELECT MAX(ID_CAJA) AS ID FROM CAJA";
                     Cmd = new OleDbCommand(Sql, connection);
                     Dr = Cmd.ExecuteReader();
                     if (Dr.Read())
                     {
                         General._ID_CAJA_ACTUAL = Convert.ToInt32(Dr["ID"]);
                     }
-                    
+
                 }
-                    
+
 
 
                 connection.Close();
@@ -115,7 +115,7 @@ namespace Ventas.Forms
         {
             SetColorTheme();
             //this.ActiveControl = txtValor;
-            General.FillCajaTipo(cboCajaTipo,"", _TIPO);
+            General.FillCajaTipo(cboCajaTipo, "", _TIPO);
 
         }
 
@@ -158,6 +158,11 @@ namespace Ventas.Forms
 
                 e.Handled = true;
             }
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

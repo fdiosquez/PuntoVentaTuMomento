@@ -46,7 +46,7 @@ namespace VentasService
                     Local.AfectarPedidosdDetalles(list_detail_up);
 
                     //CAMBIA EL STOCK DE LA SUCURSAL EN EL SERVER
-                    Server.AfectaStock(list_detail_up);
+                   // Server.AfectaStock(list_detail_up);
                     
 
 

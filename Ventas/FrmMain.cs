@@ -37,6 +37,7 @@ namespace Ventas
         FrmProductos? frmProductosInstance = null;
         FrmEventos? frmEventosInstance = null;
         FrmConfiguracion? frmConfiguracionInstance = null;
+        FrmCtaCteDeudores? frmFrmCtaCteDeudoresInstance = null;
 
         public FrmMain()
         {
@@ -155,7 +156,7 @@ namespace Ventas
         //    //    //activeForm.Close();
         //    //    activeForm.Visible = false;
         //    //}
-                
+
 
         //    //ActivateButton(btnSender);
         //    //activeForm = childForm;
@@ -276,7 +277,7 @@ namespace Ventas
 
                 //EVITAR QUE CORRA 2 VECES
                 Process currentProcess = Process.GetCurrentProcess();
-                Process[] processes = Process.GetProcessesByName("Ventas");                
+                Process[] processes = Process.GetProcessesByName("Ventas");
                 if (processes.Length > 1)
                 {
                     foreach (Process process in processes)
@@ -300,7 +301,7 @@ namespace Ventas
 
 
                 this.Text = string.Format("Punto de Venta v{0}.{1}", version.Major, version.Minor);
-                
+
 
 
                 //CARGA DATOS DEL SISTEMA                                
@@ -314,7 +315,7 @@ namespace Ventas
                     Environment.Exit(0);
                 }
 
-                
+
 
                 SetPrimerSetup();
 
@@ -334,7 +335,7 @@ namespace Ventas
                 Local.EliminaLogAntiguo();
 
                 btnNuevo_Click(btnNuevo, null);
-                
+
 
 
                 General._ID_CAJA_ACTUAL = Caja.ExisteCajaDelDia();
@@ -375,8 +376,8 @@ namespace Ventas
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            
-            ActivateButton(sender);            
+
+            ActivateButton(sender);
             panelTitleBar.Visible = false;
 
             if (frmVentaInstance == null)
@@ -388,22 +389,22 @@ namespace Ventas
                 lblTitle.Text = frmVentaInstance.Text;
             }
 
-            
+
             panelDesktopPane.Controls.Clear();
             panelDesktopPane.Controls.Add(frmVentaInstance);
 
-            if(!frmVentaInstance.Visible)
+            if (!frmVentaInstance.Visible)
             {
                 frmVentaInstance.Visible = true;
                 frmVentaInstance.Show();
             }
-               
+
 
         }
 
         private void btnConsultaPedidos_Click(object sender, EventArgs e)
         {
-           
+
             ActivateButton(sender);
             panelTitleBar.Visible = false;
 
@@ -413,7 +414,7 @@ namespace Ventas
                 frmVentaConsultasInstance.TopLevel = false;
                 frmVentaConsultasInstance.FormBorderStyle = FormBorderStyle.None;
                 frmVentaConsultasInstance.Dock = DockStyle.Fill;
-              //  lblTitle.Text = frmVentaConsultasInstance.Text;
+                //  lblTitle.Text = frmVentaConsultasInstance.Text;
             }
 
 
@@ -423,9 +424,9 @@ namespace Ventas
             if (frmVentaConsultasInstance.Visible)
             {
                 frmVentaConsultasInstance.Refrescar();
-                
+
             }
-            else 
+            else
             {
                 frmVentaConsultasInstance.Visible = true;
                 frmVentaConsultasInstance.Show();
@@ -463,9 +464,9 @@ namespace Ventas
 
             if (frmCajaInstance.Visible)
             {
-                frmCajaInstance.Refrescar();                
+                frmCajaInstance.Refrescar();
             }
-            else 
+            else
             {
                 frmCajaInstance.Visible = true;
                 frmCajaInstance.Show();
@@ -544,7 +545,7 @@ namespace Ventas
             {
                 frmEventosInstance.Refrescar();
             }
-            else 
+            else
             {
                 frmEventosInstance.Visible = true;
                 frmEventosInstance.Show();
@@ -602,6 +603,39 @@ namespace Ventas
         private void panelDesktopPane_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCtaCte_Click(object sender, EventArgs e)
+        {
+            
+
+            //
+
+            ActivateButton(sender);
+            panelTitleBar.Visible = false;
+
+            if (frmFrmCtaCteDeudoresInstance == null)
+            {
+                frmFrmCtaCteDeudoresInstance = new Forms.FrmCtaCteDeudores();
+                frmFrmCtaCteDeudoresInstance.TopLevel = false;
+                frmFrmCtaCteDeudoresInstance.FormBorderStyle = FormBorderStyle.None;
+                frmFrmCtaCteDeudoresInstance.Dock = DockStyle.Fill;
+                // lblTitle.Text = frmCajaInstance.Text;
+            }
+
+
+            panelDesktopPane.Controls.Clear();
+            panelDesktopPane.Controls.Add(frmFrmCtaCteDeudoresInstance);
+
+            if (frmFrmCtaCteDeudoresInstance.Visible)
+            {
+                frmFrmCtaCteDeudoresInstance.Refrescar();
+            }
+            else
+            {
+                frmFrmCtaCteDeudoresInstance.Visible = true;
+                frmFrmCtaCteDeudoresInstance.Show();
+            }
         }
     }
 }

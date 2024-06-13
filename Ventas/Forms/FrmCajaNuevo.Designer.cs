@@ -81,6 +81,7 @@
             txtValor.PlaceholderText = "   Valor";
             txtValor.Size = new Size(83, 29);
             txtValor.TabIndex = 14;
+            txtValor.TextChanged += txtValor_TextChanged;
             txtValor.KeyPress += txtValor_KeyPress;
             // 
             // btnAceptar

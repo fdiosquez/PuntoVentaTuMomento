@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +8,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 
 namespace Ventas.Forms
 {
     public partial class FrmVentaMetodoPago : Form
     {
+        int PANEL_X = 12;
+        int PANEL_Y = 91;
+
+        int PANEL_W = 848;
+        int PANEL_H = 185;
+
+
+        private Cliente _CLIENTE_DEFAULT;
         private Button currentButton;
         private double _TOTAL;
         private double _DESCUENTO;
         private double _TOTAL_FINAL;
-       
+
 
         private string m_METEDO_OBSERVACION;
         private double m_VALOR_EFECTIVO;
@@ -27,6 +37,21 @@ namespace Ventas.Forms
         private double m_VALOR_DESCUENTO;
         private double m_VALOR_FINAL;
         private int m_VALOR_TIPO;
+        private int m_TIPO_DE_VENTA;
+        private Cliente m_CLIENTE;
+
+
+        public Cliente _CLIENTE //cliente seleccionado
+        {
+            get { return m_CLIENTE; }
+            set { m_CLIENTE = value; }
+        }
+
+        public int _TIPO_DE_VENTA //1 = VENTA DIRECTA / 2 = HACIA CTA CTE
+        {
+            get { return m_TIPO_DE_VENTA; }
+            set { m_TIPO_DE_VENTA = value; }
+        }
 
         public int _VALOR_TIPO //corresponde al ID
         {
@@ -120,8 +145,46 @@ namespace Ventas.Forms
             ActivateButton(btnEfectivo);
             MuestraTotales();
             SetColorTheme();
+            BuscarClientePorDefecto();
+
+            btnAceptarCliente.Visible = false;
+            btnCancelarCliente.Visible = false;
+
         }
 
+        private void BuscarClientePorDefecto()
+        {
+
+            _CLIENTE = General._LISTA_CLIENTES.Find(x => x.SISTEMA == true);
+
+            if (_CLIENTE == null)
+            {
+                MessageBox.Show("Falta el cliente de sistema por defecto", "App", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                this.DialogResult = DialogResult.Cancel;
+                return;
+            }
+
+            RecargarDatosCliente();
+        }
+
+        private void RecargarDatosCliente()
+        {
+            txtTelefono.Text = _CLIENTE.TELEFONO;
+            txtNombreCompleto.Text = _CLIENTE.DESCRIPCION;
+            txtEmail.Text = _CLIENTE.EMAIL;
+            if (_CLIENTE.SISTEMA)
+            {
+                txtTelefono.Enabled = false;
+                txtNombreCompleto.Enabled = false;
+                txtEmail.Enabled = false;
+
+                //HAGO UNA COPIA DEL CLIENTE EN MEMORIA.
+                _CLIENTE_DEFAULT = _CLIENTE;
+                gBoxTipoVenta.Enabled = false;
+            }
+            else
+                gBoxTipoVenta.Enabled = true;
+        }
         private void SetColorTheme()
         {
             btnCancelar.BackColor = ColorTranslator.FromHtml("#FF5722");
@@ -133,6 +196,41 @@ namespace Ventas.Forms
             btnAceptar.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.ForeColor = Color.White;
+
+
+            btnBuscar.BackColor = ThemeColor.PrimaryColor;
+            btnBuscar.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.White;
+
+            btnBuscar2.BackColor = ThemeColor.PrimaryColor;
+            btnBuscar2.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnBuscar2.FlatStyle = FlatStyle.Flat;
+            btnBuscar2.ForeColor = Color.White;
+
+
+            btnBuscar.BackColor = ThemeColor.PrimaryColor;
+            btnBuscar.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.White;
+
+            btnAceptarCliente.BackColor = Color.FromArgb(0, 150, 136);
+            btnAceptarCliente.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnAceptarCliente.FlatStyle = FlatStyle.Flat;
+            btnAceptarCliente.ForeColor = Color.White;
+
+
+            btnNuevoCliente.BackColor = Color.FromArgb(0, 150, 136);
+            btnNuevoCliente.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnNuevoCliente.FlatStyle = FlatStyle.Flat;
+            btnNuevoCliente.ForeColor = Color.White;
+
+
+            btnCancelarCliente.BackColor = Color.FromArgb(0, 150, 136);
+            btnCancelarCliente.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+            btnCancelarCliente.FlatStyle = FlatStyle.Flat;
+            btnCancelarCliente.ForeColor = Color.White;
+
 
         }
 
@@ -187,6 +285,14 @@ namespace Ventas.Forms
                             btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                             btn.FlatStyle = FlatStyle.Flat;
                             break;
+                        case "btnCliente":
+                            btn.Image = Properties.Resources.descuento_negro;
+                            btn.BackColor = Color.FromArgb(224, 224, 224);
+                            btn.ForeColor = Color.Black;
+                            btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                            btn.FlatStyle = FlatStyle.Flat;
+                            break;
+
                     }
 
 
@@ -231,6 +337,11 @@ namespace Ventas.Forms
                             this.ActiveControl = txtPorcentajeDescuento;
                             MuestraPanelDescuento();
                             break;
+                        case "btnCliente":
+                            currentButton.Image = Properties.Resources.descuento_blanco;
+                            //this.ActiveControl = txtPorcentajeDescuento;
+                            MuestraPanelClientes();
+                            break;
                     }
 
                     currentButton.ForeColor = Color.White;
@@ -244,16 +355,17 @@ namespace Ventas.Forms
             OcultaPaneles();
             CalculaEfectivo();
             panelEfectivo.Visible = true;
-            panelEfectivo.Location = new Point(52, 91);
-            panelEfectivo.Size = new Size(726, 185);
+            panelEfectivo.Location = new Point(PANEL_X, PANEL_Y);
+            panelEfectivo.Size = new Size(PANEL_W, PANEL_H);
+
         }
 
         private void MuestraPanelDescuento()
         {
             OcultaPaneles();
             panelDescuento.Visible = true;
-            panelDescuento.Location = new Point(52, 91);
-            panelDescuento.Size = new Size(726, 185);
+            panelDescuento.Location = new Point(PANEL_X, PANEL_Y);
+            panelDescuento.Size = new Size(PANEL_W, PANEL_H);
         }
 
         private void MuestraPanelReferencia(string PlaceHolder)
@@ -261,8 +373,8 @@ namespace Ventas.Forms
             OcultaPaneles();
             txtReferencia.PlaceholderText = PlaceHolder;
             panelReferencia.Visible = true;
-            panelReferencia.Location = new Point(52, 91);
-            panelReferencia.Size = new Size(726, 185);
+            panelReferencia.Location = new Point(PANEL_X, PANEL_Y);
+            panelReferencia.Size = new Size(PANEL_W, PANEL_H);
         }
 
         private void MuestraPanelMixto()
@@ -270,10 +382,19 @@ namespace Ventas.Forms
             OcultaPaneles();
             CalculaResto();
             panelMixto.Visible = true;
-            panelMixto.Location = new Point(52, 91);
-            panelMixto.Size = new Size(726, 185);
+            panelMixto.Location = new Point(PANEL_X, PANEL_Y);
+            panelMixto.Size = new Size(PANEL_W, PANEL_H);
         }
 
+        private void MuestraPanelClientes()
+        {
+            OcultaPaneles();
+            CalculaResto();
+            panelCliente.Visible = true;
+            panelCliente.Location = new Point(PANEL_X, PANEL_Y);
+            panelCliente.Size = new Size(PANEL_W, PANEL_H);
+
+        }
 
         private void OcultaPaneles()
         {
@@ -516,6 +637,15 @@ namespace Ventas.Forms
         private void btnAceptar_Click(object sender, EventArgs e)
         {
 
+
+            if (_CLIENTE == null)
+            {
+                MessageBox.Show("Debe Seleccionar un Cliente para poder realizar el pedido", "Ferrar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            
+
             switch (currentButton.Name)
             {
                 case "btnEfectivo":
@@ -611,12 +741,198 @@ namespace Ventas.Forms
                 case "btnDescuento":
                     MessageBox.Show("El descuento no es un metedo de pago.\n Debe seleccionar entre Efectivo, Transferencia, Debito , QR ó Mixto", "App", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
+
+                case "btnCliente": //PARADO EN CTA CTE
+                    _METEDO_OBSERVACION = "CTA CTE";
+                    _VALOR_TRANSFERENCIA = _TOTAL_FINAL;
+                    _VALOR_TIPO = -1; 
+                    break;
             }
 
             _VALOR_DESCUENTO = _DESCUENTO;
             _VALOR_FINAL = _TOTAL_FINAL;
 
+
+            if (rdoVentaDirecta.Checked)
+                this._TIPO_DE_VENTA = 1; //Venta directa
+            else
+                this._TIPO_DE_VENTA = 2; //cta cte
+
+
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {
+
+            //LIMPIO EL CLIENTE POR DEFECTO QUE ESTA EN MEMORIA
+            _CLIENTE = new Cliente();
+
+            //RECARGO LOS DATOS VISAULES
+            RecargarDatosCliente();
+
+            txtTelefono.Enabled = true;
+            txtNombreCompleto.Enabled = true;
+            txtEmail.Enabled = true;
+
+            btnNuevoCliente.Visible = false;
+
+            btnAceptarCliente.Visible = true;
+            btnCancelarCliente.Visible = true;
+
+
+            txtTelefono.Focus();
+
+        }
+
+        private void btnCancelarCliente_Click(object sender, EventArgs e)
+        {
+            //LIMPIO EL CLIENTE POR DEFECTO QUE ESTA EN MEMORIA
+            _CLIENTE = _CLIENTE_DEFAULT;
+
+            //RECARGO LOS DATOS VISAULES
+            RecargarDatosCliente();
+
+            txtTelefono.Enabled = false;
+            txtNombreCompleto.Enabled = false;
+            txtEmail.Enabled = false;
+
+            btnNuevoCliente.Visible = true;
+
+            btnAceptarCliente.Visible = false;
+            btnCancelarCliente.Visible = false;
+
+            btnCliente.Focus();
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtMixtoQR.Text.IndexOf('.') > 0 && e.KeyChar == '.')
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '.')
+                    e.Handled = true;
+                if (e.KeyChar != '\r')
+                    return;
+
+                e.Handled = true;
+            }
+        }
+
+        private void btnAceptarCliente_Click(object sender, EventArgs e)
+        {
+
+            if (txtTelefono.Text == "")
+            {
+                MessageBox.Show("Debe Ingresar el telefono", "Ferrar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                txtTelefono.Focus();
+                return;
+            }
+
+
+
+            if (txtNombreCompleto.Text == "")
+            {
+                MessageBox.Show("Debe Ingresar el Nombre del cliente", "Ferrar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                txtNombreCompleto.Focus();
+                return;
+            }
+
+            Cliente cli = new Cliente();
+            cli.DESCRIPCION = txtNombreCompleto.Text;
+            cli.TELEFONO = txtTelefono.Text;
+            cli.EMAIL = txtEmail.Text;
+
+            if (Local.GrabaCliente(cli))
+            {
+                MessageBox.Show("Cliente Agregado con Exito", "App", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                //RECARGO EN MEMORIA
+
+                Cursor.Current = Cursors.WaitCursor;
+                General.CargarDatosDeClientes();
+                Cursor.Current = Cursors.Default;
+
+                _CLIENTE = General._LISTA_CLIENTES.Find(x => x.TELEFONO == cli.TELEFONO);
+
+                if (_CLIENTE == null)
+                {
+                    MessageBox.Show("Error interno de sistema no puedo recargar el cliente", "App", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return;
+                }
+
+                RecargarDatosCliente();
+
+                txtTelefono.Enabled = false;
+                txtNombreCompleto.Enabled = false;
+                txtEmail.Enabled = false;
+
+                btnNuevoCliente.Visible = true;
+
+                btnAceptarCliente.Visible = false;
+                btnCancelarCliente.Visible = false;
+
+            }
+
+
+
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            SeleccionarCliente();
+        }
+
+        private void btnBuscar2_Click(object sender, EventArgs e)
+        {
+            SeleccionarCliente();
+        }
+
+        private void SeleccionarCliente()
+        {
+
+            btnCancelarCliente_Click(null, null);
+
+            FrmVentaConsultasCliente frm = new FrmVentaConsultasCliente();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _CLIENTE = frm._CLIENTE;
+                RecargarDatosCliente();
+            }
+
+
+
+        }
+
+        private void rdoVentaDirecta_CheckedChanged(object sender, EventArgs e)
+        {
+            btnEfectivo.Enabled = true;
+            btnTransferencia.Enabled = true;
+            btnDebito.Enabled = true;
+            btnQR.Enabled = true;
+            btnMixto.Enabled = true;
+            btnDescuento.Enabled = true;
+
+        }
+
+        private void rdoCuentaCorriente_CheckedChanged(object sender, EventArgs e)
+        {
+            btnEfectivo.Enabled = false;
+            btnTransferencia.Enabled = false;
+            btnDebito.Enabled = false;
+            btnQR.Enabled = false;
+            btnMixto.Enabled = false;
+            btnDescuento.Enabled = false;
         }
     }
 }

@@ -20,8 +20,24 @@ namespace Ventas.Forms
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
+            if (General._CONNECTED == "1")
+            {
+                btnNuevo.Visible = false;
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+            }
+            else
+            {
+                btnNuevo.Visible = true;
+                btnModificar.Visible = true;
+                btnEliminar.Visible = true;
+            }
+
             SetColorTheme();
+
             ListarProductos();
+
+
         }
 
         private void SetColorTheme()
@@ -39,18 +55,22 @@ namespace Ventas.Forms
 
 
             //BOTONES EN EL TOOLBAR
-            foreach (Control btns in this.Controls)
+            if (General._CONNECTED == "0")
             {
-                if (btns.GetType() == typeof(Button))
+                foreach (Control btns in this.panelTitleBar.Controls)
                 {
-                    Button btn = (Button)btns;
-                    btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White;
-                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                    btn.FlatStyle = FlatStyle.Flat;
+                    if (btns.GetType() == typeof(Button))
+                    {
+                        Button btn = (Button)btns;
+                        btn.BackColor = ThemeColor.PrimaryColor;
+                        btn.ForeColor = Color.White;
+                        btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                        btn.FlatStyle = FlatStyle.Flat;
 
+                    }
                 }
             }
+
 
 
             //PANEL
@@ -101,6 +121,87 @@ namespace Ventas.Forms
             if (e.KeyChar == '\r')
             {
                 ListarProductos();
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmProductosNuevo frm = new FrmProductosNuevo();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                ListarProductos();
+            }
+        }
+
+        private void dgPedidos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Seleccionar()
+        {
+
+            if (General._CONNECTED == "1")
+                return;
+
+            if (dgPedidos.RowCount >= 1 && dgPedidos.CurrentRow.Index != -1)
+            {
+
+                Producto pro = dgPedidos.SelectedRows[0].DataBoundItem as Producto;
+
+                FrmProductosNuevo frm = new FrmProductosNuevo();
+                if (frm.ShowDialog(pro) == DialogResult.OK)
+                {
+                    ListarProductos();
+                }
+
+                //MessageBox.Show(pro.DESCRIPCION);
+
+            }
+
+        }
+
+        private void dgPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+                
+                if (dgPedidos.RowCount >= 1 && dgPedidos.CurrentRow.Index != -1)
+                {
+
+                Producto pro = dgPedidos.SelectedRows[0].DataBoundItem as Producto;
+
+                List<TaskProductos> LP = new List<TaskProductos>();
+
+                TaskProductos taskP = new TaskProductos();
+                taskP.task_id_producto = 0;
+                taskP.tipo = "B";             
+                LP.Add(taskP);
+
+
+                if (MessageBox.Show("Seguro que desea eliminar el producto " + pro.DESCRIPCION + " ?", "App", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (Local.AfectarProductos(LP).Count > 0)
+                    {
+                        MessageBox.Show("Producto Eliminado con exito!", "App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        ListarProductos();
+
+                        
+                    }
+                }
+
+                
+
             }
         }
     }

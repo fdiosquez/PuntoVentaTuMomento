@@ -133,29 +133,47 @@
   <data name="billete-de-banco_negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\billete-de-banco_negro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tarjetas_de_credito_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\tarjetas_de_credito_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="codigo_qr_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\codigo_qr_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="billete-de-banco_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\billete-de-banco_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eliminar-x24-blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\eliminar-x24-blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="check_negro_x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\check_negro_x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tarjetas_de_credito_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\tarjetas_de_credito_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="calendario_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\calendario_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dineroX32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\dineroX32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recuperacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\recuperacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transferencia_movil_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\transferencia_movil_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="transferencia_movil_negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\transferencia_movil_negro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="billete-de-banco_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\billete-de-banco_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dedoX24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\dedoX24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dinero_detalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\dinero_detalle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="banco_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\banco_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="editar-24-blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\editar-24-blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="impresora_blanco_x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\impresora_blanco_x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +205,14 @@
   <data name="codigo_qr_negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\codigo_qr_negro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="transferencia_movil_blanco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\transferencia_movil_blanco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="calendario_negrox16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\calendario_negrox16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="productos-cosmeticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\productos-cosmeticos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nueva-pagina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\nueva-pagina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flujo-de-efectivo_x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\flujo-de-efectivo_x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,7 +238,7 @@
   <data name="almacenamiento-en-la-nube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\almacenamiento-en-la-nube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="recuperacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\recuperacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="casilla-de-verificacionX24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\casilla-de-verificacionX24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

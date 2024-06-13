@@ -38,6 +38,7 @@
             btnConfiguracion = new Button();
             btnEventos = new Button();
             btnProductos = new Button();
+            btnCtaCte = new Button();
             btnCaja = new Button();
             btnConsultaPedidos = new Button();
             btnNuevo = new Button();
@@ -88,6 +89,7 @@
             panelMenu.Controls.Add(btnConfiguracion);
             panelMenu.Controls.Add(btnEventos);
             panelMenu.Controls.Add(btnProductos);
+            panelMenu.Controls.Add(btnCtaCte);
             panelMenu.Controls.Add(btnCaja);
             panelMenu.Controls.Add(btnConsultaPedidos);
             panelMenu.Controls.Add(btnNuevo);
@@ -107,11 +109,11 @@
             btnConfiguracion.ForeColor = Color.Gainsboro;
             btnConfiguracion.Image = (Image)resources.GetObject("btnConfiguracion.Image");
             btnConfiguracion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnConfiguracion.Location = new Point(0, 374);
+            btnConfiguracion.Location = new Point(0, 434);
             btnConfiguracion.Name = "btnConfiguracion";
             btnConfiguracion.Padding = new Padding(12, 0, 0, 0);
             btnConfiguracion.Size = new Size(220, 60);
-            btnConfiguracion.TabIndex = 6;
+            btnConfiguracion.TabIndex = 7;
             btnConfiguracion.Text = "  Configuracion";
             btnConfiguracion.TextAlign = ContentAlignment.MiddleLeft;
             btnConfiguracion.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -127,7 +129,7 @@
             btnEventos.ForeColor = Color.Gainsboro;
             btnEventos.Image = (Image)resources.GetObject("btnEventos.Image");
             btnEventos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEventos.Location = new Point(0, 314);
+            btnEventos.Location = new Point(0, 374);
             btnEventos.Name = "btnEventos";
             btnEventos.Padding = new Padding(12, 0, 0, 0);
             btnEventos.Size = new Size(220, 60);
@@ -147,7 +149,7 @@
             btnProductos.ForeColor = Color.Gainsboro;
             btnProductos.Image = Properties.Resources.productos_cosmeticos;
             btnProductos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProductos.Location = new Point(0, 254);
+            btnProductos.Location = new Point(0, 314);
             btnProductos.Name = "btnProductos";
             btnProductos.Padding = new Padding(12, 0, 0, 0);
             btnProductos.Size = new Size(220, 60);
@@ -157,6 +159,26 @@
             btnProductos.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnProductos.UseVisualStyleBackColor = true;
             btnProductos.Click += btnProductos_Click;
+            // 
+            // btnCtaCte
+            // 
+            btnCtaCte.Dock = DockStyle.Top;
+            btnCtaCte.FlatAppearance.BorderSize = 0;
+            btnCtaCte.FlatStyle = FlatStyle.Flat;
+            btnCtaCte.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCtaCte.ForeColor = Color.Gainsboro;
+            btnCtaCte.Image = Properties.Resources.dineroX32;
+            btnCtaCte.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCtaCte.Location = new Point(0, 254);
+            btnCtaCte.Name = "btnCtaCte";
+            btnCtaCte.Padding = new Padding(12, 0, 0, 0);
+            btnCtaCte.Size = new Size(220, 60);
+            btnCtaCte.TabIndex = 6;
+            btnCtaCte.Text = "  Cuenta Cte.";
+            btnCtaCte.TextAlign = ContentAlignment.MiddleLeft;
+            btnCtaCte.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCtaCte.UseVisualStyleBackColor = true;
+            btnCtaCte.Click += btnCtaCte_Click;
             // 
             // btnCaja
             // 
@@ -326,5 +348,6 @@
         private ToolStripStatusLabel toolLabelSucursal;
         private ToolStripStatusLabel toolLabelPuesto;
         private PrintPreviewDialog printPreviewDialog1;
+        private Button btnCtaCte;
     }
 }
